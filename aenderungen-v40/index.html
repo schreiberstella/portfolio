@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stella Schreiber – Portfolio</title>
+  <meta name="description" content="Portfolio von Stella Schreiber: Animation, Illustration, Fotografie und Grafik Design.">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- Entscheidet vor dem ersten Bild: erst die Logo-Seite (index.html) oder direkt das Portfolio (index.html#portfolio) -->
+  <script>
+    document.documentElement.setAttribute('data-stage', (location.hash === '#portfolio' || location.hash === '#about') ? 'portfolio' : 'gate');
+  </script>
+  <style>
+    /* Die vier Bereiche unter dem Namen (nur Startseite): gleiche Abstände, Klick führt zur Unterseite */
+    .hallo-links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .8rem clamp(1.4rem, 5vw, 5rem); margin-top: clamp(.5rem, 3vw, 2.5rem); }
+    .hallo-links a { font-family: var(--display); font-size: clamp(1.05rem, 2.3vw, 2.2rem); line-height: 1.1; text-transform: uppercase; letter-spacing: -.01em; text-decoration: none; color: inherit; transition: color .2s ease; }
+    .hallo-links a:hover, .hallo-links a:focus-visible { color: var(--violett, #8b3ff0); outline: none; }
+    @media (max-width: 819px) { .hallo-text { order: 1; } .hallo-links { order: 2; margin-top: 0; } .hallo-bild { order: 3; } }
+  </style>
+  <style>
+    /* Erste Seite nach der Logo-Seite: Hintergrund im Orange des Pingpong-Plakats (#e73d22), ohne Logo oben links */
+    .hallo { background: #e73d22; box-shadow: 0 0 0 100vmax #e73d22; clip-path: inset(0 -100vmax); }
+    html[data-stage="portfolio"] .kopf { transition: background-color .25s ease; }
+    body.start-oben .kopf { background: #e73d22; }
+    .kopf .logo { display: none; }
+    .kopf { justify-content: flex-end; }
+  </style>
+</head>
+<body>
+
+  <!-- ============ 1. LOGO-SEITE ============ -->
+  <section class="tor" id="tor" aria-label="Willkommen">
+    <button class="tor-knopf" id="eintreten" type="button" aria-label="Portfolio von Stella Schreiber öffnen">
+      <img src="logo.png" alt="">
+      <span>Stella<br>Schreiber</span>
+    </button>
+    <p class="tor-hinweis" aria-hidden="true">Portfolio öffnen &rarr;</p>
+  </section>
+
+  <!-- ============ 2. PORTFOLIO ============ -->
+  <div id="portfolio">
+
+    <header class="kopf">
+      <a class="logo" href="index.html#portfolio" aria-label="Stella Schreiber – Startseite">
+        <img src="logo.png" alt="">
+        <span>Stella<br>Schreiber</span>
+      </a>
+      <button class="burger" id="menueAuf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menue">
+        <i></i><i></i><i></i>
+      </button>
+    </header>
+
+    <div class="scrim" id="scrim"></div>
+    <nav class="menue" id="menue" aria-label="Bereiche">
+      <button class="menue-zu" id="menueZu" type="button" aria-label="Menü schließen"></button>
+      <ul>
+        <li><a href="illustration.html">Illustration</a></li>
+        <li><a href="animation.html">Animation</a></li>
+        <li><a href="grafik-design.html">Grafik Design</a></li>
+        <li><a href="fotografie.html">Fotografie</a></li>
+        <li><a href="index.html#about">About me</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hallo">
+        <div class="hallo-text">
+          <h1>
+            <span class="zeile">Hello, ich bin</span>
+            <span class="zeile name">Stella<br>Schreiber</span>
+          </h1>
+        </div>
+        <img class="hallo-bild" src="logo.png" alt="Bunte Illustration von Stella Schreiber">
+        <nav class="hallo-links" aria-label="Bereiche">
+          <a href="illustration.html">Illustration</a>
+          <a href="animation.html">Animation</a>
+          <a href="grafik-design.html">Grafik Design</a>
+          <a href="fotografie.html">Fotografie</a>
+        </nav>
+      </section>
+
+      <section class="abschnitt" id="about">
+        <h2>About me</h2>
+        <div class="ueber">
+          <div>
+            <!-- Hier kannst du den Text ändern. Neuer Absatz = neues <p> ... </p> -->
+            <p>
+              Ich bin Stella Schreiber, Kommunikationsdesignerin im Studium an der HTW Berlin.
+              Im Mittelpunkt meiner Arbeit steht die Animation, ergänzt durch klassisches
+              Grafikdesign, Fotografie und handwerkliche Arbeiten wie die Buchbindung.
+            </p>
+            <p>
+              In meinen Arbeiten beschäftige ich mich mit gesellschaftlichen Fragen und der
+              Alltag liefert dafür erstaunlich viel Absurdes. Ich greife beides mit Metaphern
+              und Humor auf, damit sie zugänglich bleiben. Mein Stil ist comichaft, mit klaren
+              Formen, kräftigen Farben und nicht zu nah an der Realität. Alles, was sich
+              zeichnen lässt, kann existieren.
+            </p>
+          </div>
+          <!-- Dein Foto: Datei foto.jpg in den Hauptordner legen. Fehlt sie, verschwindet dieser Platz automatisch. -->
+          <img class="foto" src="foto.jpg" alt="Foto von Stella Schreiber"
+               onerror="this.parentNode.classList.add('ohne-foto'); this.remove();">
+        </div>
+      </section>
+
+      <section class="abschnitt" id="lebenslauf">
+        <h2>Lebenslauf</h2>
+        <!-- Einträge ändern: jeweils einen Block <li> ... </li> bearbeiten, kopieren oder löschen -->
+        <div class="cv-gruppe">
+          <h3>Ausbildung</h3>
+          <ol class="cv-liste">
+            <li>
+              <span class="zeit">04/2025 – 10/2027</span>
+              <div class="inhalt">
+                <h4>Kommunikationsdesign (B.A.)</h4>
+                <p class="ort">Hochschule für Technik und Wirtschaft Berlin · voraussichtlicher Abschluss 10/2027</p>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">10/2023 – 03/2025</span>
+              <div class="inhalt">
+                <h4>Grafikdesign und Visuelle Kommunikation (B.A.)</h4>
+                <p class="ort">Hochschule für Medien, Kommunikation und Wirtschaft · Hochschulwechsel</p>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">07/2013 – 06/2020</span>
+              <div class="inhalt">
+                <h4>Abitur</h4>
+                <p class="ort">Wilma-Rudolph-Oberschule · Leistungskurse Biologie und Geographie</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="cv-gruppe">
+          <h3>Berufserfahrung</h3>
+          <ol class="cv-liste">
+            <li>
+              <span class="zeit">08/2025 – heute</span>
+              <div class="inhalt">
+                <h4>Assistenz in der Papierrestaurierung</h4>
+                <p class="ort">Papierrestaurierung Berlin</p>
+                <ul>
+                  <li>Restauratorische Hilfsarbeiten an historischem Bibliotheksgut</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">02/2024 – heute</span>
+              <div class="inhalt">
+                <h4>Studentische Hilfskraft Bühnentechnik</h4>
+                <p class="ort">Staatsoper unter den Linden und Schaubühne</p>
+                <ul>
+                  <li>Auf- und Abbau von Bühnenbildern</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">12/2023 – 09/2024</span>
+              <div class="inhalt">
+                <h4>Werkstudentin für Grafik, Druck und Marketing</h4>
+                <p class="ort">Café Schaubühne, Berlin</p>
+                <ul>
+                  <li>Gestaltung und Umsetzung von Marketingmaterialien für Print- und Online-Medien</li>
+                  <li>Plakate und Banner für die Außenwerbung, Fotografiearbeiten, Social-Media-Beiträge</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">2023 – 2024</span>
+              <div class="inhalt">
+                <h4>Ehrenamtliche Mitarbeit</h4>
+                <p class="ort">Filmrauschpalast, Berlin</p>
+                <ul>
+                  <li>Kundenbetreuung, Verantwortung für Projektoren und Filmvorführung</li>
+                  <li>Unterstützung des Teams bei der Organisation von Events</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">05/2022 – 04/2023</span>
+              <div class="inhalt">
+                <h4>Werkstudentin für Event- und Projektmanagement</h4>
+                <p class="ort">Kompagnon, Berlin</p>
+                <ul>
+                  <li>Entwicklung und Umsetzung von Eventkonzepten, Unterstützung bei Planung und Durchführung</li>
+                  <li>Erstellung von Marketingmaterialien, Rechnungen und Präsentationen</li>
+                  <li>Kommunikation mit Teilnehmenden und Dienstleistern</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">07/2020</span>
+              <div class="inhalt">
+                <h4>Praktikum (drei Wochen)</h4>
+                <p class="ort">Verein für Inklusive Medienbildung e. V.</p>
+                <ul>
+                  <li>Videoschnitt und Bildbearbeitung</li>
+                  <li>Unterstützung bei der Organisation eines Kurzfilmwettbewerbs</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="cv-gruppe">
+          <h3>Kenntnisse</h3>
+          <ol class="cv-liste">
+            <li>
+              <span class="zeit">Software</span>
+              <div class="inhalt">
+                <ul>
+                  <li>Grafik und Layout: Adobe InDesign, Illustrator, Photoshop</li>
+                  <li>Video und Motion Design: Adobe Premiere Pro, After Effects</li>
+                  <li>3D und Interaktiv: Blender (Grundkenntnisse), TouchDesigner (Grundkenntnisse)</li>
+                  <li>UI/UX und Prototyping: Figma</li>
+                  <li>Office: Microsoft Office (Word, Excel, PowerPoint), Google Workspace</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">Foto &amp; Handwerk</span>
+              <div class="inhalt">
+                <ul>
+                  <li>Analoge Fotografie: Entwicklung und Druck von Schwarzweißfilmen</li>
+                  <li>Digitale Fotografie</li>
+                  <li>Buchbinden</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">Sprachen</span>
+              <div class="inhalt">
+                <ul>
+                  <li>Deutsch: Muttersprache</li>
+                  <li>Englisch: fließend in Wort und Schrift (C1)</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <span class="zeit">Interessen</span>
+              <div class="inhalt">
+                <ul>
+                  <li>Illustration, Film und Animation, Fotografie, politische Bildung</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="abschnitt" id="kontakt">
+        <h2>Kontakt</h2>
+        <ul class="kontakt-liste">
+          <li>
+            <span class="label">E-Mail</span>
+            <a href="mailto:schreiber-stella@gmx.de">schreiber-stella@gmx.de</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="fuss">
+      <p>&copy; 2026 Stella Schreiber</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    /* Menüpunkt "About me" auf der Startseite: Menü schließen, dann zum Abschnitt springen */
+    (function () {
+      var l = document.querySelector('#menue a[href="index.html#about"]');
+      if (l) l.addEventListener('click', function () { setTimeout(function () { var z = document.getElementById('menueZu'); if (z) z.click(); }, 0); });
+    })();
+    /* Kopfleiste ist oben orange wie die erste Seite und wird beim Weiterscrollen wieder weiß */
+    (function () {
+      function k() { document.body.classList.toggle('start-oben', window.scrollY < 40); }
+      window.addEventListener('scroll', k, { passive: true }); k();
+    })();
+  </script>
+</body>
+</html>

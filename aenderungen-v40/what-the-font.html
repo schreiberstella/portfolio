@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What the Font – Stella Schreiber</title>
+  <meta name="description" content="What the Font: ein interaktives Kartenspiel von Stella Schreiber.">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="kopf">
+    <a class="logo" href="index.html#portfolio" aria-label="Stella Schreiber – Startseite">
+      <img src="logo.png" alt="">
+      <span>Stella<br>Schreiber</span>
+    </a>
+    <button class="burger" id="menueAuf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menue">
+      <i></i><i></i><i></i>
+    </button>
+  </header>
+
+  <div class="scrim" id="scrim"></div>
+  <nav class="menue" id="menue" aria-label="Bereiche">
+    <button class="menue-zu" id="menueZu" type="button" aria-label="Menü schließen"></button>
+    <ul>
+      <li><a href="illustration.html">Illustration</a></li>
+      <li><a href="animation.html">Animation</a></li>
+      <li><a href="grafik-design.html" aria-current="page">Grafik Design</a></li>
+      <li><a href="fotografie.html">Fotografie</a></li>
+      <li><a href="index.html#about">About me</a></li>
+    </ul>
+  </nav>
+
+  <main class="seite wtf-seite" id="wtfSeite">
+    <style>
+    /* ===== WHAT THE FONT – Layout nach etwurf_whatthefont.pdf =====
+       Diese Seite bringt ihr Layout selbst mit (kein Eintrag in style.css nötig).
+       Jede Position ist ein Prozentwert der Seitenbreite: x = --l, y = --t, Breite = --w.
+       --p = 1 Entwurfs-Punkt in Pixeln (wird aus der tatsächlichen Seitenbreite berechnet). */
+    .wtf-rahmen { max-width: 1120px; margin: clamp(1.6rem, 5vw, 3.4rem) auto 0; }
+    .wtf-stage {
+      --cw: min(1120px, calc(100vw - 112px));
+      --p: calc(var(--cw) / 841.89);
+      position: relative; height: 0; padding-top: 263.942%;
+      color: #000;
+    }
+    .wtf-g { position: absolute; left: 0; width: 100%; top: var(--t); height: var(--h); }
+    .wtf-e { position: absolute; left: var(--l); top: var(--t); width: var(--w); margin: 0; }
+    .wtf-bild { display: block; height: auto; max-width: none; }
+    .wtf-h1 {
+      width: auto; white-space: nowrap;
+      font-family: var(--display); font-weight: 900; text-transform: uppercase;
+      letter-spacing: 0; line-height: 1; font-size: calc(var(--p) * 50.2);
+    }
+    .wtf-text { font-family: var(--fliesstext); font-size: calc(var(--p) * 15.5); line-height: calc(var(--p) * 20.4); text-align: left; }
+    .wtf-text p { margin: 0; }
+    .wtf-text p + p { margin-top: calc(var(--p) * 20.4); }
+    .wtf-text h2 {
+      margin: 0 0 calc(var(--p) * var(--hm, 0));
+      font-family: var(--fliesstext); font-weight: 400; -webkit-text-stroke: .03em currentColor;
+      text-transform: none; letter-spacing: 0; line-height: 1; font-size: calc(var(--p) * 25);
+    }
+    .wtf-text h2 + p { margin-left: calc(var(--p) * var(--tx, 0)); max-width: calc(var(--p) * var(--tw, 100000)); }
+    .wtf-jahr { width: auto; white-space: nowrap; }
+
+    /* Handy / schmales Fenster: untereinander, in der Reihenfolge des Entwurfs */
+    @media (max-width: 760px) {
+      .wtf-stage { padding-top: 0; height: auto; }
+      .wtf-g { position: static; height: auto; margin-top: 2.4rem; }
+      .wtf-g:first-child { margin-top: 0; }
+      .wtf-e { position: static; width: 100%; margin: 0 0 1rem; }
+      .wtf-h1 { white-space: normal; font-size: clamp(1.8rem, 9vw, 2.6rem); }
+      .wtf-text { font-size: 1rem; line-height: 1.35; }
+      .wtf-text p + p { margin-top: 1.35em; }
+      .wtf-text h2 { font-size: 1.4rem; margin-bottom: .5rem; }
+      .wtf-text h2 + p { margin-left: 0; max-width: none; }
+      .wtf-bild { width: 100%; }
+    }
+    </style>
+    <a class="zurueck" href="grafik-design.html">&larr; Grafik Design</a>
+
+    <!-- =====================================================================
+         WHAT THE FONT – so pflegst du die Seite (Layout nach etwurf_whatthefont.pdf)
+         TEXTE: einfach hier im Text ändern.
+         BILDER (Ordner bilder/what-the-font/, gleicher Name = ersetzen):
+           hero-geschlossen.jpg | hero-offen.jpg      (die zwei Bilder oben)
+           idee.jpg                                    (Idee)
+           konzept-01.jpg | konzept-02.jpg | konzept-03.jpg
+           umsetzung-01.jpg | umsetzung-02.jpg
+           vorschau.jpg                                (Bild in der Übersicht Grafik Design)
+         ===================================================================== -->
+    <div class="wtf-rahmen">
+    <div class="wtf-stage" id="wtfStage">
+      <div class="wtf-g wtf-g-start" style="--t:0%;--h:24.324%">
+        <h1 class="wtf-e wtf-h1" style="--l:3.908%;--t:-1.573%">What the Font</h1>
+        <div class="wtf-e wtf-text wtf-intro" style="--l:3.944%;--t:12.396%;--w:59.39%"><p>What the Font? ist ein interaktives Kartenspiel, das Typografie auf spielerische Weise erfahrbar macht. Im Mittelpunkt steht die Schriftfamilie GT Flex, die mit ihren 112 Schriftstilen eine große gestalterische Vielfalt bietet. Das Spiel verbindet typografisches Wissen mit Kreativität und spielerischem Wettbewerb.</p></div>
+        <div class="wtf-e wtf-text wtf-jahr" style="--l:83.669%;--t:12.396%"><p>2024</p></div>
+        <img class="wtf-e wtf-bild wtf-hero-links" style="--l:7.162%;--t:40.167%;--w:42.654%" src="bilder/what-the-font/hero-geschlossen.jpg" width="1248" height="983" alt="Die geschlossene Spielbox What the Font: lila Schachtel mit schwarzer Typografie auf buntem Hintergrund">
+        <img class="wtf-e wtf-bild wtf-hero-rechts" style="--l:54.888%;--t:32.673%;--w:38.699%" src="bilder/what-the-font/hero-offen.jpg" width="1280" height="1430" alt="Die geöffnete Spielbox: der Deckel liegt schräg auf der Box, darin Buchstabenkarten und eine Challenge-Karte „Bold Only“">
+      </div>
+      <div class="wtf-g wtf-g-idee" style="--t:29.423%;--h:12.884%">
+        <div class="wtf-e wtf-text wtf-idee-t" style="--l:7.685%;--t:11.491%;--w:46.799%;--tx:2;--hm:18.1;--tw:392"><h2>Idee</h2><p>Die Idee war es, die Unterschiede zwischen ver&shy;schiedenen Schriftschnitten wie Bold, Italic, Medium und Light auf eine einfache und unterhalt&shy;same Weise zu vermitteln. Statt Typografie nur theoretisch kennenzulernen, sollen die Spielenden selbst mit Buchstaben experimentieren und ein Gefühl für unterschiedliche Schriftstile entwickeln.</p></div>
+        <img class="wtf-e wtf-bild wtf-idee-bild" style="--l:55.839%;--t:0%;--w:36.81%" src="bilder/what-the-font/idee.jpg" width="1223" height="1130" alt="Detailfoto der Spielbox: die typografische Gestaltung der Seitenfläche mit den Buchstaben X, Y, Z, a, B, C">
+      </div>
+      <div class="wtf-g wtf-g-konzept" style="--t:44.071%;--h:25.548%">
+        <div class="wtf-e wtf-text wtf-konzept-t" style="--l:7.162%;--t:-0.617%;--w:76.613%;--tx:0.2;--hm:17.8"><h2>Konzept</h2><p>Das Spielprinzip orientiert sich an Scrabble. Mithilfe von Buchstabenkarten werden Wörter gebildet, wobei zusätzliche Challenge-Karten typografische Aufgaben vorge&shy;ben. Beispielsweise darf ein Wort nur aus Bold-Buchstaben bestehen oder muss be&shy;stimmte Schriftstile kombinieren.<br>Durch das Tauschen, Ziehen und Ablegen von Karten entstehen immer neue Möglich&shy;keiten. Das Kartenset besteht aus 88 Alphabetkarten, 12 Challenge-Karten sowie zu&shy;sätzlichen häufig verwendeten Buchstaben und Vokalen in unterschiedlichen Schriftschnitten.</p></div>
+        <img class="wtf-e wtf-bild wtf-konzept-1" style="--l:3.967%;--t:39.704%;--w:27.106%" src="bilder/what-the-font/konzept-01.jpg" width="1280" height="1920" alt="Personen halten Spielkarten am Tisch">
+        <img class="wtf-e wtf-bild wtf-konzept-2" style="--l:33.354%;--t:39.704%;--w:27.106%" src="bilder/what-the-font/konzept-02.jpg" width="1280" height="1920" alt="Ausgelegte Buchstabenkarten auf dem Tisch">
+        <img class="wtf-e wtf-bild wtf-konzept-3" style="--l:62.74%;--t:39.704%;--w:33.294%" src="bilder/what-the-font/konzept-03.jpg" width="1280" height="1563" alt="Die Spielanleitung, daneben liegen Challenge-Karten">
+      </div>
+      <div class="wtf-g wtf-g-umsetzung" style="--t:72.386%;--h:22.969%">
+        <div class="wtf-e wtf-text wtf-umsetzung-t" style="--l:6.949%;--t:-0.686%;--w:77.207%;--tx:2;--hm:12.9"><h2>Umsetzung</h2><p>Die Gestaltung aller Spielkarten erfolgte digital in Adobe Illustrator. Dabei wurden die verschiedenen Schriftschnitte der GT Flex gezielt eingesetzt, um die typografischen Unterschiede sichtbar zu machen. Anschließend wurden die Karten gedruckt und von Hand zugeschnitten.</p><p>Auch die Verpackung wurde eigenständig gestaltet und umgesetzt. Die Spielbox wurde gebaut und mit dem zuvor entwickelten Design beklebt, sodass ein einheitliches Erscheinungsbild von Spiel und Verpackung entstand.</p></div>
+        <img class="wtf-e wtf-bild wtf-umsetzung-1" style="--l:6.866%;--t:46.395%;--w:48.486%" src="bilder/what-the-font/umsetzung-01.jpg" width="1854" height="1242" alt="Die Spielbox mit Buchstabenkarten und Challenge-Karten, der Deckel liegt schräg darauf">
+        <img class="wtf-e wtf-bild wtf-umsetzung-2" style="--l:59.485%;--t:46.395%;--w:29.861%" src="bilder/what-the-font/umsetzung-02.jpg" width="1280" height="1393" alt="Eine Hand hält fünf aufgefächerte Buchstabenkarten">
+      </div>
+    </div>
+    </div>
+
+    <script>
+      /* misst die echte Seitenbreite, damit Schrift und Abstände exakt mit dem Entwurf mitwachsen */
+      (function () {
+        var s = document.getElementById('wtfStage');
+        function f() { s.style.setProperty('--cw', s.getBoundingClientRect().width + 'px'); }
+        f(); window.addEventListener('resize', f); window.addEventListener('load', f);
+        if (window.ResizeObserver) new ResizeObserver(f).observe(s);
+      })();
+    </script>
+  </main>
+
+  <footer class="fuss">
+    <p>&copy; 2026 Stella Schreiber</p>
+  </footer>
+
+  <script src="projekte.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

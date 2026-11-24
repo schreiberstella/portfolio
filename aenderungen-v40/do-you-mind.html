@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DO YOU MIND? – Stella Schreiber</title>
+  <meta name="description" content="DO YOU MIND?: ein animierter Kurzfilm von Stella Schreiber.">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="kopf">
+    <a class="logo" href="index.html#portfolio" aria-label="Stella Schreiber – Startseite">
+      <img src="logo.png" alt="">
+      <span>Stella<br>Schreiber</span>
+    </a>
+    <button class="burger" id="menueAuf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menue">
+      <i></i><i></i><i></i>
+    </button>
+  </header>
+
+  <div class="scrim" id="scrim"></div>
+  <nav class="menue" id="menue" aria-label="Bereiche">
+    <button class="menue-zu" id="menueZu" type="button" aria-label="Menü schließen"></button>
+    <ul>
+      <li><a href="illustration.html">Illustration</a></li>
+      <li><a href="animation.html" aria-current="page">Animation</a></li>
+      <li><a href="grafik-design.html">Grafik Design</a></li>
+      <li><a href="fotografie.html">Fotografie</a></li>
+      <li><a href="index.html#about">About me</a></li>
+    </ul>
+  </nav>
+
+  <main class="seite" id="projektDetail" data-bereich="animation" data-projekt="do-you-mind">
+    <style>
+      /* Projektbeginn (nur diese Seite): links Titel + Beschreibung, rechts Projektinfo, darunter das Hauptvideo */
+      main[data-projekt="do-you-mind"] .projekt-spalte { max-width: 1120px; padding: 0 4.25% 0 4.09%; }
+      main[data-projekt="do-you-mind"] #projektSlider, main[data-projekt="do-you-mind"] .bild-zaehler { display: none; }
+      main[data-projekt="do-you-mind"] .projekt-info { margin-top: clamp(1.6rem, 3.5vw, 3rem); display: grid; grid-template-columns: minmax(0, 1fr) minmax(8rem, 22%); column-gap: clamp(1.5rem, 6vw, 5rem); align-items: start; }
+      main[data-projekt="do-you-mind"] .projekt-name { grid-column: 1; grid-row: 1; font-size: clamp(2.4rem, 5.6vw, 4.8rem); line-height: 1.02; }
+      main[data-projekt="do-you-mind"] .projekt-text { grid-column: 1; grid-row: 2; margin-top: clamp(1rem, 2.2vw, 1.8rem); }
+      main[data-projekt="do-you-mind"] .projekt-meta { grid-column: 2; grid-row: 1 / span 2; margin: 0; padding-top: clamp(.5rem, 1.2vw, 1rem); font-size: 1rem; line-height: 1.6; letter-spacing: .08em; }
+      main[data-projekt="do-you-mind"] .sd-seite { margin-top: clamp(2.2rem, 4.5vw, 4rem); }
+      main[data-projekt="do-you-mind"] .sx-hero, main[data-projekt="do-you-mind"] .dm-hero { margin-top: 0; }
+      @media (max-width: 700px) {
+        main[data-projekt="do-you-mind"] .projekt-info { grid-template-columns: 1fr; }
+        main[data-projekt="do-you-mind"] .projekt-name, main[data-projekt="do-you-mind"] .projekt-text, main[data-projekt="do-you-mind"] .projekt-meta { grid-column: 1; grid-row: auto; }
+        main[data-projekt="do-you-mind"] .projekt-meta { margin-top: .8rem; padding-top: 0; }
+        main[data-projekt="do-you-mind"] .projekt-text { margin-top: 1rem; }
+      }
+    </style>
+    <script>
+      /* Dauer und Jahr (stehen in projekte.js als "5 min | 2026") untereinander anzeigen */
+      window.addEventListener('load', function () {
+        var m = document.getElementById('projektMeta');
+        if (!m || m.textContent.indexOf('|') < 0) return;
+        var teile = m.textContent.split('|').map(function (t) { return t.trim(); });
+        m.textContent = '';
+        teile.forEach(function (t, i) { if (i) m.appendChild(document.createElement('br')); m.appendChild(document.createTextNode(t)); });
+      });
+    </script>
+
+    <div class="projekt-spalte">
+      <a class="zurueck" id="zurueck" href="index.html#portfolio">&larr; Zurück</a>
+
+      <div class="slider" id="projektSlider">
+        <div class="spur" id="projektSpur" tabindex="0" aria-label="Bilder des Projekts"></div>
+        <button class="pfeil pfeil-links" id="bildVor" type="button" aria-label="Voriges Bild"></button>
+        <button class="pfeil pfeil-rechts" id="bildWeiter" type="button" aria-label="Nächstes Bild"></button>
+      </div>
+
+      <div class="projekt-info">
+        <p class="bild-zaehler" id="bildZaehler" aria-live="polite"></p>
+        <h1 class="projekt-name" id="projektTitel"></h1>
+        <p class="projekt-meta" id="projektMeta" hidden></p>
+        <div class="projekt-text" id="projektText"></div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         PROZESS (weiter unten auf der Seite) – so pflegst du ihn
+         Das Layout entspricht deinem Entwurf (entwurf_doyoumind.pdf).
+         Titel, Kurzbeschreibung, Jahr und das Bild ganz oben stehen in
+         projekte.js (Projekt "DO YOU MIND?").
+         TEXTE: einfach hier im Text ändern.
+         BILDER/VIDEO (Ordner bilder/do-you-mind/, gleicher Name = ersetzen):
+           video-hero.mp4 (+ video-hero-poster.jpg als Startbild)
+           skizze.jpg (Idee) | konzept-01.jpg, konzept-02.jpg, konzept-03.jpg
+           bildabfolge.jpg (alle Animationsframes in einem Bild)
+         ===================================================================== -->
+    <div class="sd-seite">
+      <div class="sd-stage">
+      <div class="dm-hero" style="--gap:0;--vg:0.88;--x:4.09;--w:91.66">
+        <video controls playsinline preload="metadata" src="bilder/do-you-mind/video-hero.mp4" poster="bilder/do-you-mind/video-hero-poster.jpg" aria-label="DO YOU MIND?: der Film"></video>
+      </div>
+      <div class="dm-row dm-pair" style="--gap:8.53;--rh:61.17;--x1:7.19;--w1:39.79;--w2:39.11;--cg:2.93">
+        <div class="sd-text dm-text" style="--ty:6.84;--hm:1.54"><h2 class="sd-h2">Idee</h2><p>Jeder Mensch hat Impulse und Wünsche. Doch in einer Gesellschaft können wir nicht allem nachgeben. Es gibt Regeln und Grenzen. Manche sind geschrieben. Andere sind unausgesprochen.</p><p>Als Hintergrund diente Sigmund Freuds Buch „Das Unbehagen in der Kultur“. Freud beschreibt darin, dass Zusammenleben nur funktioniert, wenn wir unsere Triebe einschränken. Genau das erzeugt aber auch Unbehagen. Wie sollten wir uns also verhalten? Und wie viel Kontrolle ist nötig?</p></div>
+        <img class="dm-bild" src="bilder/do-you-mind/skizze.jpg" alt="Handgezeichnete Skizze: Ideen und Szenen zu DO YOU MIND?">
+      </div>
+      <div class="dm-row dm-block" style="--gap:2.8;--rh:19.75">
+        <div class="sd-text dm-text" style="--x:7.19;--w:76.02;--hm:1.54"><h2 class="sd-h2">Konzept</h2><p>Der Film besteht aus drei Szenen. Jede zeigt eine Situation, in der ein Impuls auf eine gesellschaftliche Regel trifft. Die Struktur ist offen angelegt. So lässt sich der Film beliebig um weitere Szenen erweitern.<br>Durch seine kurze und klare Form eignet sich der Film auch als Kampagnenfilm.</p></div>
+      </div>
+      <div class="dm-row dm-szenen" style="--gap:0;--rh:16.3">
+        <img class="dm-bild" src="bilder/do-you-mind/konzept-01.jpg" alt="Szene im Bus: Eine Frau hält einem Mann das Ohr zu, er telefoniert" style="--ml:7.16;--dy:0.18;--w:27.31;--ar:229.9 / 134.1">
+        <img class="dm-bild" src="bilder/do-you-mind/konzept-02.jpg" alt="Szene im Supermarkt" style="--ml:2.35;--dy:0.26;--w:27.31;--ar:229.9 / 132.7">
+        <img class="dm-bild" src="bilder/do-you-mind/konzept-03.jpg" alt="Szene im Kino" style="--ml:4.34;--dy:0;--w:27.31;--ar:229.9 / 137.2">
+      </div>
+      <div class="dm-row dm-block" style="--gap:7.66;--rh:13.33">
+        <div class="sd-text dm-text" style="--x:7.16;--w:76.02;--hm:0.48"><h2 class="sd-h2">Umsetzung</h2><p>Alle Szenen wurden Frame für Frame von Hand gezeichnet. Anschließend wurden sie digital zu einem Animationsfilm zusammengesetzt.</p></div>
+      </div>
+      <div class="dm-abfolge" style="--x:7.84;--w:81.95;--pb:4.51">
+        <img src="bilder/do-you-mind/bildabfolge.jpg" alt="Bildabfolge: die einzelnen Animationsframes der Busszene in sechs Spalten (70 Frames)" width="2321" height="2972">
+      </div>
+      </div>
+    </div>
+    <noscript><p class="hinweis">Für diese Seite wird JavaScript benötigt.</p></noscript>
+  </main>
+
+  <footer class="fuss">
+    <p>&copy; 2026 Stella Schreiber</p>
+  </footer>
+
+  <script src="projekte.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
