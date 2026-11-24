@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!-- Layout-Version v49 (Startseite mit gelber Überschrift) -->
+  <!-- Layout-Version v51 (Startseite mit gelber Überschrift) -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella Schreiber – Portfolio</title>
   <meta name="description" content="Portfolio von Stella Schreiber: Animation, Illustration, Fotografie und Grafik Design.">
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=49">
+  <link rel="stylesheet" href="style.css?v=51">
   <!-- Entscheidet vor dem ersten Bild: erst die Logo-Seite (index.html) oder direkt das Portfolio (index.html#portfolio) -->
   <script>
     document.documentElement.setAttribute('data-stage', (location.hash === '#portfolio' || location.hash === '#about') ? 'portfolio' : 'gate');
@@ -40,7 +40,7 @@
 
 
     /* --- About me --- */
-    .ab { position: relative; overflow: hidden; border-top: 3px solid #000; border-bottom: 3px solid #000; margin: clamp(28px, 6vw, 80px) 0 0; padding: clamp(14px, 2vw, 28px) 0 clamp(110px, 12vw, 170px); }
+    .ab { position: relative; overflow: hidden; border-top: 3px solid #000; border-bottom: 3px solid #000; margin: clamp(28px, 6vw, 80px) 0 0; padding: clamp(14px, 2vw, 28px) 0 clamp(80px, 8vw, 120px); }
     .ab-text { position: relative; z-index: 2; width: 47%; min-width: 300px; margin: 0 auto; }
     .ab-text h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2.1rem, 4.6vw, 4.8rem); line-height: 1; text-transform: uppercase; margin: 0 0 clamp(.7rem, 1.6vw, 1.5rem); padding: 0; border: 0; }
     .ab-text p { max-width: none; margin: 0 0 1.5em; font-size: clamp(1.02rem, 1.75vw, 1.7rem); line-height: 1.35; font-weight: 400; text-align: left; }
@@ -56,14 +56,14 @@
     }
 
     /* --- Lebenslauf-Link (öffnet das PDF) --- */
-    .ab-cv { position: absolute; z-index: 2; right: 7%; bottom: clamp(16px, 2.2vw, 32px); width: 30%; min-width: 220px; display: block; color: #000; text-decoration: none; transition: color .2s ease; }
-    .ab-cv span { display: block; text-align: right; padding-right: 3%; font-family: "Text", var(--display); font-weight: 400; font-size: clamp(1.02rem, 1.75vw, 1.7rem); line-height: 1.2; margin-bottom: .15em; }
+    .ab-cv { position: absolute; z-index: 2; right: 7%; bottom: clamp(16px, 2.2vw, 32px); width: auto; display: block; color: #000; text-decoration: none; transition: color .2s ease; }
+    .ab-cv span { display: block; text-align: right; font-family: var(--display); font-weight: 900; font-size: clamp(1.1rem, 2vw, 1.9rem); line-height: 1.1; }
     .ab-cv svg { display: block; width: 100%; height: auto; overflow: visible; }
     .ab-cv svg path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: butt; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }
     .ab-cv:hover, .ab-cv:focus-visible { color: var(--violett, #8b3ff0); outline: none; }
     .ab-cv:hover svg { transform: translateX(6px); }
     .ab-cv svg { transition: transform .25s ease; }
-    @media (max-width: 719px) { .ab-cv { position: static; width: 70%; margin: 1.5rem 7% 0 auto; } }
+    @media (max-width: 719px) { .ab-cv { position: static; margin: 1.5rem 7% 0 auto; width: fit-content; } }
 
     /* --- Kontakt --- */
     .ko { position: relative; overflow: hidden; min-height: clamp(0px, 30vw, 540px); border-top: 3px solid #000; padding: clamp(20px, 3.4vw, 48px) 3% clamp(60px, 11vw, 150px); }
@@ -113,9 +113,9 @@
 
     <main>
       <section class="st-hero">
-        <img class="st-mund" src="hero-mund.png?v=49" alt="" aria-hidden="true">
+        <img class="st-mund" src="hero-mund.png?v=51" alt="" aria-hidden="true">
         <div class="st-buehne" id="buehne">
-          <img class="st-zeichnung" src="hero-zeichnung.png?v=49" alt="" aria-hidden="true">
+          <img class="st-zeichnung" src="hero-zeichnung.png?v=51" alt="" aria-hidden="true">
           <h1 class="nur-sr">Hello, ich bin Stella Schreiber</h1>
           <svg class="st-kopf" id="stKopf" viewBox="0 0 1085 770" role="img" aria-label="Hello, ich bin Stella Schreiber" preserveAspectRatio="xMidYMid meet">
 <g class="bu" data-x="393.0" data-y="158.9" data-r="0.6"><path d="M-68.0 59.4 -25.4 59.4 -25.4 13.1 25.4 13.1 25.4 59.4 68.0 59.4 68.0 -59.4 25.4 -59.4 25.4 -15.0 -25.4 -15.0 -25.4 -59.4 -68.0 -59.4Z"/></g>
@@ -156,27 +156,26 @@
       </section>
 
       <section class="ab" id="about">
-        <img class="ab-stern l" src="sterne.svg?v=49" alt="" aria-hidden="true">
-        <img class="ab-stern r" src="sterne.svg?v=49" alt="" aria-hidden="true">
+        <img class="ab-stern l" src="sterne.svg?v=51" alt="" aria-hidden="true">
+        <img class="ab-stern r" src="sterne.svg?v=51" alt="" aria-hidden="true">
         <div class="ab-text">
           <h2>About me</h2>
           <!-- Hier kannst du den Text ändern. Neuer Absatz = neuer p-Block -->
           <p>Hello nochmal.</p>
-          <p>Alsoooo ich mache gerne Illustartionen, Animation, Comics, Plakate oder Videos. Dabei beschäftige ich mich gerne mit gesellschaftlichen Fragen, ich mag es wenn es nicht zu ernst bleibt aber es darf natürlich auch Ernst sein.</p>
-          <p>Generell lebe ich wohl in Gegensätzen. Ich mag es bunt, aber auch schwarz-weiß. Ich mag Dinge, die Sinn ergeben und Dinge, die überhaupt keinen Sinn ergeben. Ich mag es laut, aber dann ist es irgendwie zu laut. Ich mag das Absurde aber auch das Reale, was mir aber oft absurd erschent.</p>
+          <p>Alsoooo ich mache gerne Illustrationen, Animation, Comics, Plakate oder Videos. Dabei beschäftige ich mich gerne mit gesellschaftlichen Fragen, ich mag es wenn es nicht zu ernst bleibt aber es darf natürlich auch Ernst sein.</p>
+          <p>Generell lebe ich wohl in Gegensätzen. Ich mag es bunt, aber auch schwarz-weiß. Ich mag Dinge, die Sinn ergeben und Dinge, die überhaupt keinen Sinn ergeben. Ich mag es laut, aber dann ist es irgendwie zu laut. Ich mag das Absurde aber auch das Reale, was mir aber oft absurd erscheint.</p>
           <p>Naja gerade studiere ich an der HTW Berlin Kommunikationsdesign, suche nach Arbeit und/oder Praktikum.</p>
           <p>Sooooooooo, hit me up!</p>
         </div>
         <a class="ab-cv" href="Lebenslauf.pdf" target="_blank" rel="noopener" aria-label="Lebenslauf als PDF öffnen">
           <span>Lebenslauf</span>
-          <svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 L292 18 M276 3 L296 18 L276 33"/></svg>
         </a>
       </section>
 
       <section class="ko" id="kontakt">
         <h2>Kontakt</h2>
         <a class="mail" href="mailto:schreiber-stella@gmx.de">schreiber-stella@gmx.de</a>
-        <img class="ko-daumen" src="daumen.svg?v=49" alt="" aria-hidden="true">
+        <img class="ko-daumen" src="daumen.svg?v=51" alt="" aria-hidden="true">
       </section>
     </main>
 
