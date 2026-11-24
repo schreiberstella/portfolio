@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!-- Layout-Version v48 (Startseite mit gelber Überschrift) -->
+  <!-- Layout-Version v49 (Startseite mit gelber Überschrift) -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella Schreiber – Portfolio</title>
   <meta name="description" content="Portfolio von Stella Schreiber: Animation, Illustration, Fotografie und Grafik Design.">
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=48">
+  <link rel="stylesheet" href="style.css?v=49">
   <!-- Entscheidet vor dem ersten Bild: erst die Logo-Seite (index.html) oder direkt das Portfolio (index.html#portfolio) -->
   <script>
     document.documentElement.setAttribute('data-stage', (location.hash === '#portfolio' || location.hash === '#about') ? 'portfolio' : 'gate');
@@ -38,10 +38,9 @@
       .st-buehne > * { }
     }
 
-    #lebenslauf > h2 { border-top: 0; padding-top: 0; }
 
     /* --- About me --- */
-    .ab { position: relative; overflow: hidden; border-top: 3px solid #000; border-bottom: 3px solid #000; margin: clamp(28px, 6vw, 80px) 0 0; padding: clamp(14px, 2vw, 28px) 0 clamp(40px, 6vw, 84px); }
+    .ab { position: relative; overflow: hidden; border-top: 3px solid #000; border-bottom: 3px solid #000; margin: clamp(28px, 6vw, 80px) 0 0; padding: clamp(14px, 2vw, 28px) 0 clamp(110px, 12vw, 170px); }
     .ab-text { position: relative; z-index: 2; width: 47%; min-width: 300px; margin: 0 auto; }
     .ab-text h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2.1rem, 4.6vw, 4.8rem); line-height: 1; text-transform: uppercase; margin: 0 0 clamp(.7rem, 1.6vw, 1.5rem); padding: 0; border: 0; }
     .ab-text p { max-width: none; margin: 0 0 1.5em; font-size: clamp(1.02rem, 1.75vw, 1.7rem); line-height: 1.35; font-weight: 400; text-align: left; }
@@ -55,6 +54,16 @@
       .ab-stern.l { left: -36%; top: 14px; }
       .ab-stern.r { left: 56%; top: 20vw; }
     }
+
+    /* --- Lebenslauf-Link (öffnet das PDF) --- */
+    .ab-cv { position: absolute; z-index: 2; right: 7%; bottom: clamp(16px, 2.2vw, 32px); width: 30%; min-width: 220px; display: block; color: #000; text-decoration: none; transition: color .2s ease; }
+    .ab-cv span { display: block; text-align: right; padding-right: 3%; font-family: "Text", var(--display); font-weight: 400; font-size: clamp(1.02rem, 1.75vw, 1.7rem); line-height: 1.2; margin-bottom: .15em; }
+    .ab-cv svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .ab-cv svg path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: butt; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }
+    .ab-cv:hover, .ab-cv:focus-visible { color: var(--violett, #8b3ff0); outline: none; }
+    .ab-cv:hover svg { transform: translateX(6px); }
+    .ab-cv svg { transition: transform .25s ease; }
+    @media (max-width: 719px) { .ab-cv { position: static; width: 70%; margin: 1.5rem 7% 0 auto; } }
 
     /* --- Kontakt --- */
     .ko { position: relative; overflow: hidden; min-height: clamp(0px, 30vw, 540px); border-top: 3px solid #000; padding: clamp(20px, 3.4vw, 48px) 3% clamp(60px, 11vw, 150px); }
@@ -104,9 +113,9 @@
 
     <main>
       <section class="st-hero">
-        <img class="st-mund" src="hero-mund.png?v=48" alt="" aria-hidden="true">
+        <img class="st-mund" src="hero-mund.png?v=49" alt="" aria-hidden="true">
         <div class="st-buehne" id="buehne">
-          <img class="st-zeichnung" src="hero-zeichnung.png?v=48" alt="" aria-hidden="true">
+          <img class="st-zeichnung" src="hero-zeichnung.png?v=49" alt="" aria-hidden="true">
           <h1 class="nur-sr">Hello, ich bin Stella Schreiber</h1>
           <svg class="st-kopf" id="stKopf" viewBox="0 0 1085 770" role="img" aria-label="Hello, ich bin Stella Schreiber" preserveAspectRatio="xMidYMid meet">
 <g class="bu" data-x="393.0" data-y="158.9" data-r="0.6"><path d="M-68.0 59.4 -25.4 59.4 -25.4 13.1 25.4 13.1 25.4 59.4 68.0 59.4 68.0 -59.4 25.4 -59.4 25.4 -15.0 -25.4 -15.0 -25.4 -59.4 -68.0 -59.4Z"/></g>
@@ -147,8 +156,8 @@
       </section>
 
       <section class="ab" id="about">
-        <img class="ab-stern l" src="sterne.svg?v=48" alt="" aria-hidden="true">
-        <img class="ab-stern r" src="sterne.svg?v=48" alt="" aria-hidden="true">
+        <img class="ab-stern l" src="sterne.svg?v=49" alt="" aria-hidden="true">
+        <img class="ab-stern r" src="sterne.svg?v=49" alt="" aria-hidden="true">
         <div class="ab-text">
           <h2>About me</h2>
           <!-- Hier kannst du den Text ändern. Neuer Absatz = neuer p-Block -->
@@ -158,157 +167,16 @@
           <p>Naja gerade studiere ich an der HTW Berlin Kommunikationsdesign, suche nach Arbeit und/oder Praktikum.</p>
           <p>Sooooooooo, hit me up!</p>
         </div>
-      </section>
-
-      <section class="abschnitt" id="lebenslauf">
-        <h2>Lebenslauf</h2>
-        <!-- Einträge ändern: jeweils einen Block <li> ... </li> bearbeiten, kopieren oder löschen -->
-        <div class="cv-gruppe">
-          <h3>Ausbildung</h3>
-          <ol class="cv-liste">
-            <li>
-              <span class="zeit">04/2025 – 10/2027</span>
-              <div class="inhalt">
-                <h4>Kommunikationsdesign (B.A.)</h4>
-                <p class="ort">Hochschule für Technik und Wirtschaft Berlin · voraussichtlicher Abschluss 10/2027</p>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">10/2023 – 03/2025</span>
-              <div class="inhalt">
-                <h4>Grafikdesign und Visuelle Kommunikation (B.A.)</h4>
-                <p class="ort">Hochschule für Medien, Kommunikation und Wirtschaft · Hochschulwechsel</p>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">07/2013 – 06/2020</span>
-              <div class="inhalt">
-                <h4>Abitur</h4>
-                <p class="ort">Wilma-Rudolph-Oberschule · Leistungskurse Biologie und Geographie</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div class="cv-gruppe">
-          <h3>Berufserfahrung</h3>
-          <ol class="cv-liste">
-            <li>
-              <span class="zeit">08/2025 – heute</span>
-              <div class="inhalt">
-                <h4>Assistenz in der Papierrestaurierung</h4>
-                <p class="ort">Papierrestaurierung Berlin</p>
-                <ul>
-                  <li>Restauratorische Hilfsarbeiten an historischem Bibliotheksgut</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">02/2024 – heute</span>
-              <div class="inhalt">
-                <h4>Studentische Hilfskraft Bühnentechnik</h4>
-                <p class="ort">Staatsoper unter den Linden und Schaubühne</p>
-                <ul>
-                  <li>Auf- und Abbau von Bühnenbildern</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">12/2023 – 09/2024</span>
-              <div class="inhalt">
-                <h4>Werkstudentin für Grafik, Druck und Marketing</h4>
-                <p class="ort">Café Schaubühne, Berlin</p>
-                <ul>
-                  <li>Gestaltung und Umsetzung von Marketingmaterialien für Print- und Online-Medien</li>
-                  <li>Plakate und Banner für die Außenwerbung, Fotografiearbeiten, Social-Media-Beiträge</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">2023 – 2024</span>
-              <div class="inhalt">
-                <h4>Ehrenamtliche Mitarbeit</h4>
-                <p class="ort">Filmrauschpalast, Berlin</p>
-                <ul>
-                  <li>Kundenbetreuung, Verantwortung für Projektoren und Filmvorführung</li>
-                  <li>Unterstützung des Teams bei der Organisation von Events</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">05/2022 – 04/2023</span>
-              <div class="inhalt">
-                <h4>Werkstudentin für Event- und Projektmanagement</h4>
-                <p class="ort">Kompagnon, Berlin</p>
-                <ul>
-                  <li>Entwicklung und Umsetzung von Eventkonzepten, Unterstützung bei Planung und Durchführung</li>
-                  <li>Erstellung von Marketingmaterialien, Rechnungen und Präsentationen</li>
-                  <li>Kommunikation mit Teilnehmenden und Dienstleistern</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">07/2020</span>
-              <div class="inhalt">
-                <h4>Praktikum (drei Wochen)</h4>
-                <p class="ort">Verein für Inklusive Medienbildung e. V.</p>
-                <ul>
-                  <li>Videoschnitt und Bildbearbeitung</li>
-                  <li>Unterstützung bei der Organisation eines Kurzfilmwettbewerbs</li>
-                </ul>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div class="cv-gruppe">
-          <h3>Kenntnisse</h3>
-          <ol class="cv-liste">
-            <li>
-              <span class="zeit">Software</span>
-              <div class="inhalt">
-                <ul>
-                  <li>Grafik und Layout: Adobe InDesign, Illustrator, Photoshop</li>
-                  <li>Video und Motion Design: Adobe Premiere Pro, After Effects</li>
-                  <li>3D und Interaktiv: Blender (Grundkenntnisse), TouchDesigner (Grundkenntnisse)</li>
-                  <li>UI/UX und Prototyping: Figma</li>
-                  <li>Office: Microsoft Office (Word, Excel, PowerPoint), Google Workspace</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">Foto &amp; Handwerk</span>
-              <div class="inhalt">
-                <ul>
-                  <li>Analoge Fotografie: Entwicklung und Druck von Schwarzweißfilmen</li>
-                  <li>Digitale Fotografie</li>
-                  <li>Buchbinden</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">Sprachen</span>
-              <div class="inhalt">
-                <ul>
-                  <li>Deutsch: Muttersprache</li>
-                  <li>Englisch: fließend in Wort und Schrift (C1)</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <span class="zeit">Interessen</span>
-              <div class="inhalt">
-                <ul>
-                  <li>Illustration, Film und Animation, Fotografie, politische Bildung</li>
-                </ul>
-              </div>
-            </li>
-          </ol>
-        </div>
+        <a class="ab-cv" href="Lebenslauf.pdf" target="_blank" rel="noopener" aria-label="Lebenslauf als PDF öffnen">
+          <span>Lebenslauf</span>
+          <svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 L292 18 M276 3 L296 18 L276 33"/></svg>
+        </a>
       </section>
 
       <section class="ko" id="kontakt">
         <h2>Kontakt</h2>
         <a class="mail" href="mailto:schreiber-stella@gmx.de">schreiber-stella@gmx.de</a>
-        <img class="ko-daumen" src="daumen.svg?v=48" alt="" aria-hidden="true">
+        <img class="ko-daumen" src="daumen.svg?v=49" alt="" aria-hidden="true">
       </section>
     </main>
 
