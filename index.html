@@ -9,14 +9,56 @@
   <link rel="stylesheet" href="style.css">
   <!-- Entscheidet vor dem ersten Bild: erst die Logo-Seite (index.html) oder direkt das Portfolio (index.html#portfolio) -->
   <script>
-    document.documentElement.setAttribute('data-stage', location.hash === '#portfolio' ? 'portfolio' : 'gate');
+    document.documentElement.setAttribute('data-stage', (location.hash === '#portfolio' || location.hash === '#about') ? 'portfolio' : 'gate');
   </script>
   <style>
-    /* Die vier Bereiche unter dem Namen (nur Startseite): gleiche Abstände, Klick führt zur Unterseite */
-    .hallo-links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .8rem clamp(1.4rem, 5vw, 5rem); margin-top: clamp(.5rem, 3vw, 2.5rem); }
-    .hallo-links a { font-family: var(--display); font-size: clamp(1.05rem, 2.3vw, 2.2rem); line-height: 1.1; text-transform: uppercase; letter-spacing: -.01em; text-decoration: none; color: inherit; transition: color .2s ease; }
-    .hallo-links a:hover, .hallo-links a:focus-visible { color: var(--violett, #8b3ff0); outline: none; }
-    @media (max-width: 819px) { .hallo-text { order: 1; } .hallo-links { order: 2; margin-top: 0; } .hallo-bild { order: 3; } }
+    /* ===== Startseite (nur index.html): Überschrift, About me, Kontakt ===== */
+    .kopf .logo { display: none; }
+    .kopf { justify-content: flex-end; }
+
+    /* --- Startseite oben --- */
+    .st-hero { padding-top: var(--kopf); overflow: hidden; }
+    .st-buehne { position: relative; width: min(100%, calc((100vh - var(--kopf)) * 1.409)); min-width: min(100%, 680px); margin: 0 auto; aspect-ratio: 1085 / 770; container-type: inline-size; }
+    .st-zeichnung, .st-kopf { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+    .st-zeichnung { object-fit: contain; pointer-events: none; user-select: none; }
+    .st-kopf { overflow: visible; }
+    .st-kopf .bu path { fill: #FFEE3B; stroke: #000; stroke-width: 1.8; stroke-linejoin: miter; }
+    .st-links { position: absolute; left: 2.2%; right: 6%; top: 94.8%; display: flex; justify-content: space-between; align-items: baseline; }
+    .st-links a { font-family: var(--display); font-weight: 900; font-size: 2.75cqw; line-height: 1; text-transform: uppercase; letter-spacing: -.02em; color: #000; text-decoration: none; transition: color .2s ease; white-space: nowrap; }
+    .st-links a:hover, .st-links a:focus-visible { color: var(--violett, #8b3ff0); outline: none; }
+    .nur-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    @media (max-width: 679px) {
+      .st-buehne { min-width: 0; width: 100%; }
+      .st-buehne { margin-bottom: 6.2rem; aspect-ratio: 1085 / 770; }
+      .st-links { top: 100%; left: 0; right: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1rem; padding: .6rem var(--rand) 0; }
+      .st-links a { font-size: clamp(1.05rem, 5.2vw, 1.5rem); }
+      .st-hero { padding-bottom: 1.5rem; }
+      .st-buehne > * { }
+    }
+
+    /* --- About me --- */
+    .ab { position: relative; overflow: hidden; border-top: 3px solid #000; border-bottom: 3px solid #000; margin: clamp(28px, 6vw, 80px) 0 0; padding: clamp(14px, 2vw, 28px) 0 clamp(40px, 6vw, 84px); }
+    .ab-text { position: relative; z-index: 2; width: 47%; min-width: 300px; margin: 0 auto; }
+    .ab-text h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2.1rem, 4.6vw, 4.8rem); line-height: 1; text-transform: uppercase; margin: 0 0 clamp(.7rem, 1.6vw, 1.5rem); padding: 0; border: 0; }
+    .ab-text p { max-width: none; margin: 0 0 1.05em; font-size: clamp(1.02rem, 1.75vw, 1.7rem); line-height: 1.22; font-weight: 400; text-align: left; }
+    .ab-stern { position: absolute; z-index: 1; width: 38%; height: auto; pointer-events: none; }
+    .ab-stern.l { left: -25%; top: 6%; transform: scaleX(-1) rotate(-12deg); transform-origin: 70% 50%; }
+    .ab-stern.r { left: 71%; top: 24%; }
+    @media (max-width: 719px) {
+      .ab { padding-top: 52vw; }
+      .ab-text { width: 86%; min-width: 0; }
+      .ab-stern { width: 70%; }
+      .ab-stern.l { left: -36%; top: 14px; }
+      .ab-stern.r { left: 56%; top: 20vw; }
+    }
+
+    /* --- Kontakt --- */
+    .ko { position: relative; overflow: hidden; border-top: 3px solid #000; padding: clamp(20px, 3.4vw, 48px) 3% clamp(60px, 11vw, 150px); }
+    .ko h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2.2rem, 5vw, 5.2rem); line-height: 1; text-transform: uppercase; margin: 0 0 clamp(.8rem, 2vw, 2rem); padding: 0; border: 0; }
+    .ko a.mail { position: relative; z-index: 2; display: inline-block; font-family: var(--display); font-weight: 900; font-size: clamp(1.05rem, 3.05vw, 3.4rem); line-height: 1.1; text-transform: uppercase; color: #000; text-decoration: none; word-break: break-word; transition: color .2s ease; }
+    .ko a.mail:hover, .ko a.mail:focus-visible { color: var(--violett, #8b3ff0); outline: none; }
+    .ko-daumen { position: absolute; right: -1.2%; bottom: 0; width: 15.5%; min-width: 96px; height: auto; transform: scaleX(-1); pointer-events: none; }
+    @media (max-width: 719px) { .ko a.mail { font-size: 4.9vw; } .ko-daumen { width: 30%; } }
   </style>
 </head>
 <body>
@@ -51,47 +93,74 @@
         <li><a href="animation.html">Animation</a></li>
         <li><a href="grafik-design.html">Grafik Design</a></li>
         <li><a href="fotografie.html">Fotografie</a></li>
+        <li><a href="index.html#about">About me</a></li>
       </ul>
     </nav>
 
     <main>
-      <section class="hallo">
-        <div class="hallo-text">
-          <h1>
-            <span class="zeile">Hello, ich bin</span>
-            <span class="zeile name">Stella<br>Schreiber</span>
-          </h1>
+      <section class="st-hero">
+        <div class="st-buehne" id="buehne">
+          <img class="st-zeichnung" src="hero-zeichnung.png" alt="" aria-hidden="true">
+          <h1 class="nur-sr">Hello, ich bin Stella Schreiber</h1>
+          <svg class="st-kopf" id="stKopf" viewBox="0 0 1085 770" role="img" aria-label="Hello, ich bin Stella Schreiber" preserveAspectRatio="xMidYMid meet">
+<g class="bu" data-x="393.0" data-y="158.9" data-r="0.6"><path d="M-68.0 59.4 -25.4 59.4 -25.4 13.1 25.4 13.1 25.4 59.4 68.0 59.4 68.0 -59.4 25.4 -59.4 25.4 -15.0 -25.4 -15.0 -25.4 -59.4 -68.0 -59.4Z"/></g>
+<g class="bu" data-x="522.7" data-y="159.7" data-r="-6.7"><path d="M-53.7 53.6 53.7 53.6 53.7 28.3 -15.0 28.3 -15.0 12.3 48.4 12.3 48.4 -12.2 -15.0 -12.2 -15.0 -28.3 53.7 -28.3 53.7 -53.6 -53.7 -53.6Z"/></g>
+<g class="bu" data-x="634.1" data-y="163.2" data-r="-3.4"><path d="M50.4 54.3 50.4 28.7 -10.8 28.7 -10.8 -54.3 -50.4 -54.3 -50.4 54.3Z"/></g>
+<g class="bu" data-x="706.8" data-y="141.8" data-r="0.1"><path d="M45.9 53.4 45.9 28.2 -9.8 28.2 -9.8 -53.4 -45.9 -53.4 -45.9 53.4Z"/></g>
+<g class="bu" data-x="830.0" data-y="160.9" data-r="-0.2"><path d="M0.0 64.1 11.8 63.5 22.9 61.8 33.4 59.1 43.1 55.3 51.9 50.4 59.6 44.5 66.2 37.6 71.5 29.7 75.5 20.8 77.9 10.9 78.7 0.1 77.9 -10.8 75.5 -20.7 71.5 -29.6 66.2 -37.5 59.6 -44.5 51.9 -50.4 43.1 -55.2 33.4 -59.1 22.9 -61.8 11.8 -63.5 0.0 -64.1 -11.8 -63.5 -23.0 -61.8 -33.5 -59.1 -43.2 -55.2 -52.0 -50.4 -59.7 -44.5 -66.3 -37.5 -71.6 -29.6 -75.5 -20.7 -77.9 -10.8 -78.7 0.1 -77.9 10.8 -75.5 20.7 -71.6 29.6 -66.3 37.5 -59.7 44.4 -52.0 50.3 -43.2 55.2 -33.5 59.1 -23.0 61.8 -11.8 63.5ZM0.0 34.1 -5.6 33.8 -10.6 32.8 -15.2 31.3 -19.3 29.3 -22.9 26.6 -26.0 23.4 -28.5 19.8 -30.5 15.6 -31.9 10.9 -32.8 5.7 -33.1 0.1 -32.8 -5.6 -31.9 -10.7 -30.5 -15.5 -28.5 -19.7 -26.0 -23.4 -22.9 -26.6 -19.3 -29.2 -15.2 -31.3 -10.6 -32.8 -5.6 -33.8 0.0 -34.1 5.6 -33.8 10.7 -32.8 15.3 -31.3 19.4 -29.2 22.9 -26.6 26.0 -23.4 28.5 -19.7 30.5 -15.5 31.9 -10.7 32.8 -5.6 33.1 0.1 32.8 5.7 31.9 10.9 30.5 15.6 28.5 19.8 26.0 23.4 22.9 26.6 19.4 29.3 15.3 31.3 10.7 32.8 5.6 33.8Z"/></g>
+<g class="bu" data-x="935.7" data-y="225.9" data-r="-4.4"><path d="M-21.6 31.2 6.0 31.2 21.6 -31.2 -15.5 -31.2Z"/></g>
+<g class="bu" data-x="385.0" data-y="313.9" data-r="-4.7"><path d="M67.6 16.5 69.3 11.0 28.3 11.0 27.4 13.2 26.2 15.2 24.7 17.0 22.9 18.6 20.8 20.1 18.4 21.3 15.7 22.4 12.7 23.2 9.5 23.8 6.0 24.1 2.3 24.3 -2.8 24.0 -7.6 23.4 -11.8 22.3 -15.6 20.9 -18.9 19.0 -21.7 16.8 -24.0 14.1 -25.8 11.2 -27.1 7.8 -27.9 4.1 -28.2 0.1 -27.9 -4.0 -27.1 -7.7 -25.8 -11.1 -24.0 -14.1 -21.7 -16.7 -18.9 -19.0 -15.6 -20.9 -11.8 -22.3 -7.5 -23.4 -2.8 -24.0 2.3 -24.3 6.1 -24.1 9.5 -23.8 12.7 -23.2 15.7 -22.3 18.4 -21.3 20.8 -20.0 22.9 -18.6 24.8 -16.9 26.3 -15.1 27.4 -13.1 28.3 -10.9 69.3 -10.9 67.6 -16.4 64.9 -21.5 61.2 -26.2 56.6 -30.5 51.0 -34.3 44.6 -37.7 37.4 -40.4 29.4 -42.7 20.8 -44.3 11.5 -45.3 1.6 -45.6 -9.1 -45.2 -19.2 -44.0 -28.6 -42.1 -37.3 -39.3 -45.2 -35.9 -52.1 -31.7 -58.1 -26.7 -62.8 -21.1 -66.3 -14.7 -68.5 -7.7 -69.3 0.1 -68.5 7.7 -66.3 14.7 -62.8 21.1 -58.1 26.7 -52.1 31.6 -45.2 35.8 -37.3 39.3 -28.6 42.0 -19.2 44.0 -9.1 45.2 1.6 45.6 11.5 45.3 20.7 44.3 29.4 42.7 37.4 40.5 44.6 37.7 51.0 34.4 56.5 30.6 61.2 26.3 64.9 21.6Z"/></g>
+<g class="bu" data-x="477.1" data-y="312.7" data-r="-3.3"><path d="M-51.2 43.9 -19.1 43.9 -19.1 9.7 19.1 9.7 19.1 43.9 51.2 43.9 51.2 -43.9 19.1 -43.9 19.1 -11.1 -19.1 -11.1 -19.1 -43.9 -51.2 -43.9Z"/></g>
+<g class="bu" data-x="624.0" data-y="300.0" data-r="-3.2"><path d="M-52.0 45.6 8.0 45.6 15.3 45.4 22.0 44.6 28.0 43.3 33.5 41.6 38.3 39.5 42.4 37.0 45.8 34.1 48.5 31.0 50.4 27.5 51.6 23.7 52.0 19.8 51.7 16.4 50.8 13.2 49.4 10.2 47.5 7.6 45.1 5.2 42.3 3.0 39.1 1.3 35.5 -0.2 31.6 -1.3 27.5 -2.0 23.1 -2.3 23.1 -2.4 27.0 -3.1 30.7 -4.1 34.0 -5.3 37.1 -6.8 39.8 -8.5 42.1 -10.4 44.1 -12.5 45.7 -14.9 46.8 -17.4 47.5 -20.0 47.7 -22.8 47.4 -26.4 46.2 -29.7 44.3 -32.7 41.7 -35.6 38.4 -38.1 34.3 -40.3 29.5 -42.1 24.0 -43.6 17.8 -44.7 10.8 -45.4 3.3 -45.6 -52.0 -45.6ZM-17.5 26.5 -17.5 8.5 1.4 8.5 5.8 8.9 7.7 9.3 11.0 10.6 13.5 12.4 14.4 13.5 15.0 14.7 15.4 16.1 15.6 17.5 15.4 18.9 15.0 20.3 14.4 21.5 13.5 22.6 12.4 23.6 9.5 25.2 5.8 26.2 3.6 26.4ZM-17.5 -9.5 -17.5 -26.5 -0.8 -26.5 3.2 -26.2 5.0 -25.8 8.0 -24.6 10.3 -22.8 11.1 -21.8 11.7 -20.6 12.0 -19.4 12.2 -18.0 12.0 -16.6 11.7 -15.4 11.1 -14.2 9.2 -12.2 6.6 -10.7 3.2 -9.8 1.3 -9.6Z"/></g>
+<g class="bu" data-x="680.4" data-y="303.9" data-r="-2.4"><path d="M16.0 -44.0 -16.0 -44.0 -16.0 44.0 16.0 44.0Z"/></g>
+<g class="bu" data-x="737.5" data-y="303.0" data-r="3.7"><path d="M-48.6 42.8 -18.7 42.8 -18.7 6.6 -19.1 -6.3 -8.1 9.2 18.1 42.8 48.6 42.8 48.6 -42.8 18.7 -42.8 18.7 -8.9 19.1 6.5 8.7 -8.2 -18.1 -42.8 -48.6 -42.8Z"/></g>
+<g class="bu" data-x="331.0" data-y="306.0" data-r="-5.0"><path d="M17.2 -47.0 -17.2 -47.0 -17.2 47.0 17.2 47.0Z"/></g>
+<g class="bu" data-x="234.3" data-y="434.1" data-r="1.5"><path d="M30.4 39.2 30.4 20.7 -6.5 20.7 -6.5 -39.2 -30.4 -39.2 -30.4 39.2Z"/></g>
+<g class="bu" data-x="62.4" data-y="450.0" data-r="-6.3"><path d="M36.0 42.5 40.8 39.6 44.8 36.2 47.9 32.3 50.2 28.0 51.5 23.2 52.0 17.9 51.7 13.9 50.8 10.2 49.3 6.9 47.1 3.8 44.3 1.1 40.8 -1.4 36.5 -3.6 31.6 -5.5 25.9 -7.2 19.5 -8.7 -3.7 -12.4 -8.5 -13.6 -10.5 -14.3 -13.4 -15.9 -14.4 -16.8 -15.1 -17.8 -15.5 -18.9 -15.6 -20.1 -15.5 -21.4 -15.0 -22.6 -14.2 -23.7 -13.2 -24.7 -10.3 -26.4 -6.5 -27.6 -4.3 -28.0 0.6 -28.3 3.3 -28.2 8.1 -27.4 10.2 -26.8 12.1 -25.9 13.8 -24.9 15.2 -23.7 16.4 -22.4 17.3 -20.9 17.9 -19.3 18.3 -17.5 49.5 -17.5 48.8 -22.8 47.3 -27.6 45.0 -32.0 41.9 -35.9 38.0 -39.4 33.4 -42.4 28.0 -44.8 22.0 -46.8 15.3 -48.2 7.9 -49.1 -0.0 -49.4 -7.9 -49.1 -15.2 -48.2 -21.9 -46.7 -28.0 -44.8 -33.5 -42.3 -38.2 -39.4 -42.2 -36.0 -45.4 -32.2 -47.8 -28.1 -49.2 -23.6 -49.7 -18.8 -49.4 -15.0 -48.5 -11.5 -46.9 -8.2 -44.8 -5.2 -42.0 -2.3 -38.7 0.2 -34.8 2.5 -30.3 4.5 -25.2 6.2 -19.6 7.6 -13.5 8.7 5.3 11.7 10.6 13.1 12.7 13.8 16.0 15.6 17.1 16.5 17.9 17.6 18.3 18.7 18.5 19.9 18.3 21.2 17.8 22.5 16.9 23.6 15.8 24.6 12.7 26.4 8.5 27.6 6.1 28.0 0.6 28.3 -2.6 28.2 -5.6 27.9 -8.4 27.3 -10.9 26.6 -13.1 25.6 -15.0 24.5 -16.7 23.1 -18.0 21.6 -19.0 19.9 -19.6 18.0 -19.9 16.0 -52.0 16.0 -51.5 21.6 -50.2 26.7 -47.9 31.4 -44.8 35.5 -40.8 39.1 -36.0 42.2 -30.4 44.8 -23.9 46.8 -16.6 48.2 -8.6 49.1 0.2 49.4 8.8 49.1 16.8 48.2 23.9 46.9 30.3 45.0Z"/></g>
+<g class="bu" data-x="129.1" data-y="437.7" data-r="0.1"><path d="M-15.2 46.7 15.2 46.7 15.2 -24.6 46.0 -24.6 46.0 -46.7 -46.0 -46.7 -46.0 -24.6 -15.2 -24.6Z"/></g>
+<g class="bu" data-x="175.9" data-y="461.5" data-r="-6.6"><path d="M-35.1 40.1 35.1 40.1 35.1 21.1 -9.8 21.1 -9.8 9.2 31.7 9.2 31.7 -9.1 -9.8 -9.1 -9.8 -21.1 35.1 -21.1 35.1 -40.1 -35.1 -40.1Z"/></g>
+<g class="bu" data-x="290.0" data-y="461.8" data-r="-0.8"><path d="M34.8 40.8 34.8 21.5 -7.4 21.5 -7.4 -40.8 -34.8 -40.8 -34.8 40.8Z"/></g>
+<g class="bu" data-x="326.9" data-y="432.1" data-r="-3.2"><path d="M-50.1 40.5 -21.0 40.5 -16.3 27.2 15.6 27.2 20.1 40.5 50.1 40.5 17.8 -40.5 -18.1 -40.5ZM-10.1 9.8 -5.3 -4.1 -0.1 -20.0 9.7 9.8Z"/></g>
+<g class="bu" data-x="441.1" data-y="446.3" data-r="-7.0"><path d="M15.5 48.4 22.1 47.0 28.0 45.1 33.2 42.7 37.6 39.7 41.3 36.3 44.2 32.4 46.3 28.0 47.6 23.2 48.0 18.0 47.7 13.9 46.9 10.3 45.5 6.9 43.5 3.8 40.9 1.1 37.6 -1.4 33.7 -3.6 29.2 -5.6 23.9 -7.2 18.0 -8.7 -3.4 -12.4 -7.9 -13.6 -9.7 -14.3 -12.3 -15.9 -13.3 -16.8 -13.9 -17.9 -14.3 -18.9 -14.4 -20.1 -14.3 -21.4 -13.8 -22.6 -13.1 -23.7 -12.1 -24.8 -9.5 -26.5 -7.8 -27.1 -4.0 -28.1 -1.8 -28.3 3.0 -28.3 7.5 -27.5 9.4 -26.8 11.2 -26.0 12.7 -25.0 14.0 -23.8 15.1 -22.4 16.0 -21.0 16.6 -19.3 16.9 -17.6 45.7 -17.6 45.1 -22.8 43.7 -27.7 41.5 -32.1 38.7 -36.0 35.1 -39.5 30.8 -42.5 25.9 -45.0 20.3 -46.9 14.1 -48.3 7.3 -49.2 -0.0 -49.5 -7.3 -49.2 -14.0 -48.3 -20.2 -46.9 -25.9 -44.9 -30.9 -42.4 -35.3 -39.5 -39.0 -36.1 -42.0 -32.3 -44.1 -28.2 -45.4 -23.7 -45.9 -18.9 -45.6 -15.1 -44.7 -11.5 -43.3 -8.2 -41.3 -5.2 -38.8 -2.4 -35.7 0.2 -32.1 2.5 -28.0 4.5 -23.3 6.2 -18.1 7.6 -12.5 8.8 2.0 11.1 7.5 12.4 9.8 13.1 13.4 14.7 14.7 15.6 15.8 16.6 16.5 17.6 16.9 18.7 17.1 19.9 16.9 21.3 16.4 22.5 15.6 23.7 14.6 24.7 11.7 26.4 9.9 27.1 5.6 28.1 3.2 28.3 -2.4 28.3 -5.2 27.9 -7.7 27.4 -10.0 26.6 -12.1 25.7 -13.9 24.5 -15.4 23.2 -16.6 21.6 -17.5 19.9 -18.1 18.1 -18.4 16.0 -48.0 16.0 -47.6 21.7 -46.3 26.8 -44.3 31.5 -41.4 35.6 -37.7 39.2 -33.3 42.3 -28.0 44.9 -22.1 46.9 -15.4 48.3 -7.9 49.2 0.2 49.5 8.2 49.2Z"/></g>
+<g class="bu" data-x="512.4" data-y="438.9" data-r="-3.2"><path d="M1.3 49.4 9.4 49.1 17.1 48.0 24.2 46.3 30.8 43.9 36.7 40.9 42.0 37.3 46.6 33.2 50.5 28.5 53.5 23.4 55.8 17.9 57.1 11.9 23.3 11.9 22.6 14.3 21.6 16.4 20.4 18.4 18.9 20.2 17.1 21.8 15.1 23.1 12.9 24.2 10.5 25.1 7.8 25.8 5.0 26.2 1.9 26.3 -2.3 26.1 -6.2 25.4 -9.7 24.2 -12.9 22.6 -15.6 20.6 -17.9 18.2 -19.8 15.3 -21.3 12.1 -22.4 8.5 -23.0 4.4 -23.2 0.1 -23.0 -4.3 -22.4 -8.4 -21.3 -12.0 -19.8 -15.3 -17.9 -18.1 -15.6 -20.6 -12.8 -22.6 -9.7 -24.2 -6.2 -25.4 -2.3 -26.1 1.9 -26.3 5.0 -26.2 7.9 -25.8 10.5 -25.1 13.0 -24.2 15.2 -23.1 17.2 -21.7 18.9 -20.1 20.4 -18.3 21.7 -16.3 22.6 -14.1 23.3 -11.8 57.1 -11.8 55.8 -17.7 53.6 -23.3 50.5 -28.4 46.6 -33.1 42.1 -37.2 36.8 -40.8 30.8 -43.8 24.3 -46.2 17.1 -48.0 9.4 -49.1 1.3 -49.4 -7.5 -49.0 -15.8 -47.7 -23.6 -45.6 -30.8 -42.6 -37.3 -38.9 -43.0 -34.3 -47.9 -29.0 -51.8 -22.8 -54.7 -15.9 -56.5 -8.3 -57.1 0.1 -56.5 8.4 -54.7 16.0 -51.8 22.8 -47.9 28.9 -43.0 34.3 -37.3 38.8 -30.8 42.6 -23.6 45.6 -15.8 47.7 -7.5 49.0Z"/></g>
+<g class="bu" data-x="620.1" data-y="441.0" data-r="-0.0"><path d="M-54.0 46.4 -20.2 46.4 -20.2 10.2 20.2 10.2 20.2 46.4 54.0 46.4 54.0 -46.4 20.2 -46.4 20.2 -11.7 -20.2 -11.7 -20.2 -46.4 -54.0 -46.4Z"/></g>
+<g class="bu" data-x="759.0" data-y="431.3" data-r="-0.1"><path d="M-46.7 46.8 46.7 46.8 46.7 24.7 -13.0 24.7 -13.0 10.8 42.1 10.8 42.1 -10.6 -13.0 -10.6 -13.0 -24.7 46.7 -24.7 46.7 -46.8 -46.7 -46.8Z"/></g>
+<g class="bu" data-x="940.9" data-y="441.2" data-r="0.2"><path d="M-45.8 46.8 45.8 46.8 45.8 24.7 -12.8 24.7 -12.8 10.7 41.3 10.7 41.3 -10.6 -12.8 -10.6 -12.8 -24.7 45.8 -24.7 45.8 -46.8 -45.8 -46.8Z"/></g>
+<g class="bu" data-x="820.0" data-y="458.3" data-r="0.0"><path d="M14.7 -40.6 -14.7 -40.6 -14.7 40.6 14.7 40.6Z"/></g>
+<g class="bu" data-x="698.3" data-y="457.1" data-r="0.4"><path d="M-57.2 49.0 -19.4 49.0 -19.4 18.4 -2.5 18.4 17.8 49.0 57.2 49.0 32.4 12.4 35.8 10.8 39.0 9.0 41.8 7.0 44.4 4.8 46.6 2.5 48.5 -0.0 50.1 -2.7 51.4 -5.5 52.3 -8.4 52.8 -11.5 53.0 -14.8 52.5 -20.3 51.0 -25.4 48.6 -30.1 45.4 -34.3 41.2 -38.1 36.2 -41.3 30.5 -44.0 24.0 -46.2 16.8 -47.7 8.9 -48.7 0.4 -49.0 -57.2 -49.0ZM-19.4 -2.8 -19.4 -26.8 0.5 -26.7 3.3 -26.3 5.8 -25.7 8.1 -25.0 10.2 -24.0 11.9 -22.9 13.4 -21.6 14.5 -20.1 15.4 -18.5 15.9 -16.7 16.1 -14.8 15.9 -12.9 15.4 -11.1 14.5 -9.5 13.4 -8.0 11.9 -6.7 10.2 -5.6 8.1 -4.6 5.8 -3.9 3.3 -3.3 0.5 -2.9Z"/></g>
+<g class="bu" data-x="878.5" data-y="463.7" data-r="0.1"><path d="M-52.2 47.3 8.1 47.3 15.4 47.0 22.1 46.2 28.1 44.9 33.6 43.2 38.4 41.0 42.5 38.4 46.0 35.4 48.7 32.1 50.6 28.5 51.8 24.6 52.2 20.5 51.9 17.0 51.0 13.7 49.6 10.6 47.7 7.8 45.3 5.3 42.4 3.2 39.2 1.3 35.6 -0.2 31.7 -1.3 27.6 -2.1 23.2 -2.4 23.2 -2.5 27.1 -3.3 30.8 -4.3 34.1 -5.5 37.2 -7.0 39.9 -8.8 42.3 -10.8 44.2 -13.0 45.8 -15.4 47.0 -18.0 47.7 -20.8 47.9 -23.7 47.5 -27.3 46.4 -30.8 44.5 -34.0 41.9 -36.9 38.5 -39.5 34.4 -41.8 29.6 -43.7 24.1 -45.2 17.8 -46.4 10.9 -47.1 3.3 -47.3 -52.2 -47.3ZM-17.5 27.5 -17.5 8.8 1.4 8.8 5.8 9.2 7.7 9.6 11.1 10.9 12.4 11.8 13.5 12.9 14.4 14.0 15.1 15.3 15.5 16.7 15.6 18.2 15.5 19.6 15.1 21.0 14.4 22.3 13.5 23.5 12.4 24.5 9.5 26.1 5.8 27.1 3.7 27.4ZM-17.5 -9.8 -17.5 -27.5 -0.8 -27.5 3.2 -27.2 5.0 -26.7 8.0 -25.5 10.3 -23.7 11.1 -22.6 11.7 -21.4 12.1 -20.1 12.2 -18.7 12.1 -17.3 11.7 -15.9 11.1 -14.7 9.3 -12.7 6.6 -11.1 3.2 -10.2 1.3 -9.9Z"/></g>
+<g class="bu" data-x="1032.0" data-y="464.6" data-r="3.3"><path d="M-55.8 48.8 -18.9 48.8 -18.9 18.3 -2.4 18.3 17.4 48.8 55.8 48.8 31.6 12.4 34.9 10.8 38.0 8.9 40.8 7.0 43.3 4.8 45.5 2.5 47.4 -0.0 48.9 -2.7 50.1 -5.5 51.0 -8.4 51.5 -11.5 51.7 -14.7 51.2 -20.2 49.8 -25.3 47.5 -30.0 44.2 -34.2 40.2 -37.9 35.3 -41.2 29.7 -43.9 23.4 -46.0 16.4 -47.5 8.7 -48.5 0.4 -48.8 -55.8 -48.8ZM-18.9 -2.8 -18.9 -26.7 0.5 -26.6 3.2 -26.2 5.7 -25.6 7.9 -24.9 9.9 -23.9 11.6 -22.8 13.1 -21.5 14.2 -20.0 15.0 -18.4 15.5 -16.6 15.7 -14.7 15.5 -12.9 15.0 -11.1 14.2 -9.5 13.1 -8.0 11.6 -6.7 9.9 -5.6 7.9 -4.6 5.7 -3.8 3.2 -3.3 0.5 -2.9Z"/></g>
+          </svg>
+          <nav class="st-links" aria-label="Bereiche">
+            <a href="illustration.html">Illustration</a>
+            <a href="animation.html">Animation</a>
+            <a href="grafik-design.html">Grafik Design</a>
+            <a href="fotografie.html">Fotografie</a>
+          </nav>
         </div>
-        <img class="hallo-bild" src="logo.png" alt="Bunte Illustration von Stella Schreiber">
-        <nav class="hallo-links" aria-label="Bereiche">
-          <a href="illustration.html">Illustration</a>
-          <a href="animation.html">Animation</a>
-          <a href="grafik-design.html">Grafik Design</a>
-          <a href="fotografie.html">Fotografie</a>
-        </nav>
       </section>
 
-      <section class="abschnitt" id="about">
-        <h2>About me</h2>
-        <div class="ueber">
-          <div>
-            <!-- Hier kannst du den Text ändern. Neuer Absatz = neues <p> ... </p> -->
-            <p>
+      <section class="ab" id="about">
+        <img class="ab-stern l" src="sterne.svg" alt="" aria-hidden="true">
+        <img class="ab-stern r" src="sterne.svg" alt="" aria-hidden="true">
+        <div class="ab-text">
+          <h2>About me</h2>
+          <!-- Hier kannst du den Text ändern. Neuer Absatz = neuer p-Block -->
+          <p>
               Ich bin Stella Schreiber, Kommunikationsdesignerin im Studium an der HTW Berlin.
               Im Mittelpunkt meiner Arbeit steht die Animation, ergänzt durch klassisches
               Grafikdesign, Fotografie und handwerkliche Arbeiten wie die Buchbindung.
             </p>
-            <p>
+          <p>
               In meinen Arbeiten beschäftige ich mich mit gesellschaftlichen Fragen und der
               Alltag liefert dafür erstaunlich viel Absurdes. Ich greife beides mit Metaphern
               und Humor auf, damit sie zugänglich bleiben. Mein Stil ist comichaft, mit klaren
               Formen, kräftigen Farben und nicht zu nah an der Realität. Alles, was sich
               zeichnen lässt, kann existieren.
             </p>
-          </div>
-          <!-- Dein Foto: Datei foto.jpg in den Hauptordner legen. Fehlt sie, verschwindet dieser Platz automatisch. -->
-          <img class="foto" src="foto.jpg" alt="Foto von Stella Schreiber"
-               onerror="this.parentNode.classList.add('ohne-foto'); this.remove();">
+          <p>
+              Ich suche Arbeit bzw. auch einen Praktikumsplatz.
+            </p>
         </div>
       </section>
 
@@ -240,14 +309,10 @@
         </div>
       </section>
 
-      <section class="abschnitt" id="kontakt">
+      <section class="ko" id="kontakt">
         <h2>Kontakt</h2>
-        <ul class="kontakt-liste">
-          <li>
-            <span class="label">E-Mail</span>
-            <a href="mailto:schreiber-stella@gmx.de">schreiber-stella@gmx.de</a>
-          </li>
-        </ul>
+        <a class="mail" href="mailto:schreiber-stella@gmx.de">schreiber-stella@gmx.de</a>
+        <img class="ko-daumen" src="daumen.svg" alt="" aria-hidden="true">
       </section>
     </main>
 
@@ -258,5 +323,63 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    /* Menüpunkt "About me" auf der Startseite: Menü schließen, dann zum Abschnitt springen */
+    (function () {
+      var l = document.querySelector('#menue a[href="index.html#about"]');
+      if (l) l.addEventListener('click', function () { setTimeout(function () { var z = document.getElementById('menueZu'); if (z) z.click(); }, 0); });
+    })();
+    /* Buchstaben der Überschrift: elastische Federn, reagieren auf Mausbewegung (nur Maus, nicht bei "weniger Bewegung") */
+    (function () {
+      var svg = document.getElementById('stKopf'); if (!svg) return;
+      var hero = document.getElementById('buehne');
+      var L = Array.prototype.map.call(svg.querySelectorAll('.bu'), function (g) {
+        return { g: g, x: +g.getAttribute('data-x'), y: +g.getAttribute('data-y'), r: +g.getAttribute('data-r'), dx: 0, dy: 0, dr: 0, vx: 0, vy: 0, vr: 0 };
+      });
+      function setze(l) { l.g.setAttribute('transform', 'translate(' + (l.x + l.dx).toFixed(2) + ' ' + (l.y + l.dy).toFixed(2) + ') rotate(' + (l.r + l.dr).toFixed(2) + ')'); }
+      L.forEach(setze);
+      var reduziert = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (reduziert && reduziert.matches) return;
+      var laeuft = false, letzt = 0, px = null, py = null, pt = 0;
+      var RADIUS = 150, FEDER = 0.045, DAEMPF = 0.9, MAXD = 70, MAXR = 40;
+      function frame(t) {
+        var dt = Math.min(2, (t - letzt) / 16.67 || 1); letzt = t; var ruhe = true;
+        L.forEach(function (l) {
+          l.vx += -FEDER * l.dx * dt; l.vy += -FEDER * l.dy * dt; l.vr += -FEDER * l.dr * dt;
+          var d = Math.pow(DAEMPF, dt); l.vx *= d; l.vy *= d; l.vr *= d;
+          l.dx += l.vx * dt; l.dy += l.vy * dt; l.dr += l.vr * dt;
+          if (Math.abs(l.dx) < .02 && Math.abs(l.dy) < .02 && Math.abs(l.dr) < .02 && Math.abs(l.vx) < .02 && Math.abs(l.vy) < .02 && Math.abs(l.vr) < .02) { l.dx = l.dy = l.dr = l.vx = l.vy = l.vr = 0; } else ruhe = false;
+          setze(l);
+        });
+        if (ruhe) { laeuft = false; } else requestAnimationFrame(frame);
+      }
+      function start() { if (!laeuft) { laeuft = true; letzt = performance.now(); requestAnimationFrame(frame); } }
+      function clamp(v, m) { return Math.max(-m, Math.min(m, v)); }
+      hero.addEventListener('pointermove', function (e) {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        var b = svg.getBoundingClientRect(); var sk = 1085 / b.width;
+        var mx = (e.clientX - b.left) * sk, my = (e.clientY - b.top) * sk, now = e.timeStamp;
+        if (px !== null && now - pt < 120) {
+          var vx = (mx - px) / Math.max(8, now - pt) * 16.67, vy = (my - py) / Math.max(8, now - pt) * 16.67;
+          var sp = Math.sqrt(vx * vx + vy * vy);
+          if (sp > .4) {
+            L.forEach(function (l) {
+              var cx = l.x + l.dx, cy = l.y + l.dy, ax = cx - mx, ay = cy - my, dist = Math.sqrt(ax * ax + ay * ay);
+              if (dist < RADIUS) {
+                var f = Math.pow(1 - dist / RADIUS, 2), n = dist || 1, nx = ax / n, ny = ay / n;
+                l.vx += (vx * .6 + nx * sp * .2) * f; l.vy += (vy * .6 + ny * sp * .2) * f;
+                l.vr += (nx * vy - ny * vx) * .12 * f;
+                l.vx = clamp(l.vx, 14); l.vy = clamp(l.vy, 14); l.vr = clamp(l.vr, 7);
+                l.dx = clamp(l.dx, MAXD); l.dy = clamp(l.dy, MAXD); l.dr = clamp(l.dr, MAXR);
+              }
+            });
+            start();
+          }
+        }
+        px = mx; py = my; pt = now;
+      });
+      hero.addEventListener('pointerleave', function () { px = null; py = null; });
+    })();
+  </script>
 </body>
 </html>
