@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <!-- Layout-Version v43 (Startseite mit gelber Überschrift) -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella Schreiber – Portfolio</title>
   <meta name="description" content="Portfolio von Stella Schreiber: Animation, Illustration, Fotografie und Grafik Design.">
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=43">
   <!-- Entscheidet vor dem ersten Bild: erst die Logo-Seite (index.html) oder direkt das Portfolio (index.html#portfolio) -->
   <script>
     document.documentElement.setAttribute('data-stage', (location.hash === '#portfolio' || location.hash === '#about') ? 'portfolio' : 'gate');
@@ -103,7 +104,7 @@
     <main>
       <section class="st-hero">
         <div class="st-buehne" id="buehne">
-          <img class="st-zeichnung" src="hero-zeichnung.png" alt="" aria-hidden="true">
+          <img class="st-zeichnung" src="hero-zeichnung.png?v=43" alt="" aria-hidden="true">
           <h1 class="nur-sr">Hello, ich bin Stella Schreiber</h1>
           <svg class="st-kopf" id="stKopf" viewBox="0 0 1085 770" role="img" aria-label="Hello, ich bin Stella Schreiber" preserveAspectRatio="xMidYMid meet">
 <g class="bu" data-x="393.0" data-y="158.9" data-r="0.6"><path d="M-68.0 59.4 -25.4 59.4 -25.4 13.1 25.4 13.1 25.4 59.4 68.0 59.4 68.0 -59.4 25.4 -59.4 25.4 -15.0 -25.4 -15.0 -25.4 -59.4 -68.0 -59.4Z"/></g>
@@ -144,8 +145,8 @@
       </section>
 
       <section class="ab" id="about">
-        <img class="ab-stern l" src="sterne.svg" alt="" aria-hidden="true">
-        <img class="ab-stern r" src="sterne.svg" alt="" aria-hidden="true">
+        <img class="ab-stern l" src="sterne.svg?v=43" alt="" aria-hidden="true">
+        <img class="ab-stern r" src="sterne.svg?v=43" alt="" aria-hidden="true">
         <div class="ab-text">
           <h2>About me</h2>
           <!-- Hier kannst du den Text ändern. Neuer Absatz = neuer p-Block -->
@@ -305,7 +306,7 @@
       <section class="ko" id="kontakt">
         <h2>Kontakt</h2>
         <a class="mail" href="mailto:schreiber-stella@gmx.de">schreiber-stella@gmx.de</a>
-        <img class="ko-daumen" src="daumen.svg" alt="" aria-hidden="true">
+        <img class="ko-daumen" src="daumen.svg?v=43" alt="" aria-hidden="true">
       </section>
     </main>
 
