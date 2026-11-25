@@ -26,7 +26,7 @@
 
   /* Farben aus deinem Logo */
   --orange: #ff5a00;
-  --violett: #8b3ff0;
+  --violett: #9e98c8;
   --gelb: #f5e942;
 
   /* Lila für das Menü (aus deinem Entwurf) */
@@ -268,7 +268,7 @@ html[data-stage="gate"] .tor { animation: einblenden .9s ease both; }
 }
 .menue a:hover,
 .menue a:focus-visible,
-.menue a[aria-current="page"] { color: #fff; }
+.menue a[aria-current="page"] { color: #FFEE3B; }
 .menue a:hover { transform: translateX(6px); }
 
 .scrim {
@@ -388,8 +388,14 @@ body.menue-offen { overflow: hidden; }
   padding: calc(var(--kopf) + 36px) var(--rand) 80px;
 }
 .zurueck {
+  position: fixed;
+  left: var(--rand);
+  bottom: 1rem;
+  z-index: 40;
   display: inline-block;
-  margin-bottom: 1.2rem;
+  padding: .4rem .55rem;
+  margin-left: -.55rem;
+  background: #fff;
   font-family: var(--display);
   font-weight: 900;
   text-transform: uppercase;
