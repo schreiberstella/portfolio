@@ -388,14 +388,8 @@ body.menue-offen { overflow: hidden; }
   padding: calc(var(--kopf) + 36px) var(--rand) 80px;
 }
 .zurueck {
-  position: fixed;
-  left: var(--rand);
-  bottom: 1rem;
-  z-index: 40;
   display: inline-block;
-  padding: .4rem .55rem;
-  margin-left: -.55rem;
-  background: #fff;
+  margin-bottom: 1.2rem;
   font-family: var(--display);
   font-weight: 900;
   text-transform: uppercase;
