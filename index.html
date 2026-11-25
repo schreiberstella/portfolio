@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!-- Layout-Version v53 (Startseite mit gelber Überschrift) -->
+  <!-- Layout-Version v54 (Startseite mit gelber Überschrift) -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella Schreiber – Portfolio</title>
   <meta name="description" content="Portfolio von Stella Schreiber: Animation, Illustration, Fotografie und Grafik Design.">
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=53">
+  <link rel="stylesheet" href="style.css?v=54">
   <!-- Entscheidet vor dem ersten Bild: erst die Logo-Seite (index.html) oder direkt das Portfolio (index.html#portfolio) -->
   <script>
     document.documentElement.setAttribute('data-stage', 'portfolio');
@@ -27,7 +27,7 @@
     .st-kopf .bu path { fill: #FFEE3B; stroke: #000; stroke-width: 1.8; stroke-linejoin: miter; }
     .st-links { position: absolute; left: 2.2%; right: 6%; top: 94.8%; display: flex; justify-content: space-between; align-items: baseline; }
     .st-links a { font-family: var(--display); font-weight: 900; font-size: 2.75cqw; line-height: 1; text-transform: uppercase; letter-spacing: -.02em; color: #000; text-decoration: none; transition: color .2s ease; white-space: nowrap; }
-    .st-links a:hover, .st-links a:focus-visible { color: var(--violett, #9e98c8); outline: none; }
+    .st-links a:hover, .st-links a:focus-visible { color: var(--violett, #9f8ad6); outline: none; }
     .nur-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     @media (max-width: 679px) {
       .st-buehne { min-width: 0; width: 100%; }
@@ -60,7 +60,7 @@
     .ab-cv span { display: block; text-align: right; font-family: var(--display); font-weight: 900; font-size: clamp(1.1rem, 2vw, 1.9rem); line-height: 1.1; }
     .ab-cv svg { display: block; width: 100%; height: auto; overflow: visible; }
     .ab-cv svg path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: butt; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }
-    .ab-cv:hover, .ab-cv:focus-visible { color: var(--violett, #9e98c8); outline: none; }
+    .ab-cv:hover, .ab-cv:focus-visible { color: var(--violett, #9f8ad6); outline: none; }
     .ab-cv:hover svg { transform: translateX(6px); }
     .ab-cv svg { transition: transform .25s ease; }
     @media (max-width: 719px) { .ab-cv { position: static; margin: 1.5rem 7% 0 auto; width: fit-content; } }
@@ -69,7 +69,7 @@
     .ko { position: relative; overflow: hidden; min-height: clamp(0px, 30vw, 540px); border-top: 3px solid #000; padding: clamp(20px, 3.4vw, 48px) 3% clamp(60px, 11vw, 150px); }
     .ko h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2.2rem, 5vw, 5.2rem); line-height: 1; text-transform: uppercase; margin: 0 0 clamp(.8rem, 2vw, 2rem); padding: 0; border: 0; }
     .ko a.mail { position: relative; z-index: 2; display: inline-block; font-family: var(--display); font-weight: 900; font-size: clamp(1.05rem, 3.05vw, 3.4rem); line-height: 1.1; text-transform: uppercase; color: #000; text-decoration: none; word-break: break-word; transition: color .2s ease; }
-    .ko a.mail:hover, .ko a.mail:focus-visible { color: var(--violett, #9e98c8); outline: none; }
+    .ko a.mail:hover, .ko a.mail:focus-visible { color: var(--violett, #9f8ad6); outline: none; }
     .ko-daumen { position: absolute; right: -1.2%; bottom: 0; width: 23%; min-width: 130px; height: auto; transform: translate(70%, 75%) scaleX(-1); opacity: 0; transition: transform .55s cubic-bezier(.2,.9,.25,1.15), opacity .2s ease; pointer-events: none; }
     .ko a.mail:hover ~ .ko-daumen, .ko a.mail:focus-visible ~ .ko-daumen, .ko a.mail:active ~ .ko-daumen { transform: translate(0, 0) scaleX(-1); opacity: 1; }
     @media (prefers-reduced-motion: reduce) { .ko-daumen { transition: opacity .2s ease; transform: scaleX(-1); } }

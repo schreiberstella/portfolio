@@ -26,11 +26,11 @@
 
   /* Farben aus deinem Logo */
   --orange: #ff5a00;
-  --violett: #9e98c8;
+  --violett: #9f8ad6;
   --gelb: #f5e942;
 
   /* Lila für das Menü (aus deinem Entwurf) */
-  --lila: #9e98c8;
+  --lila: #9f8ad6;
   --lila-hell: #e9e6f5;
 
   --kopf: 64px;                       /* Höhe der Kopfzeile */
@@ -526,7 +526,12 @@ body.menue-offen { overflow: hidden; }
   flex: none;
   transition: transform .2s ease;
 }
+.projekte-liste a { transition: color .2s ease; }
+.projekte-liste a:hover,
+.projekte-liste a:focus-visible,
 .projekte-liste li.aktiv a { color: var(--violett); }
+.logo span { transition: color .2s ease; }
+.logo:hover span, .logo:focus-visible span { color: var(--violett); }
 .projekte-liste li.aktiv a::after,
 .projekte-liste a:hover::after { transform: translateX(6px); }
 
