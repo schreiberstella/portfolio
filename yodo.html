@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YODO – Vorsorge Kalender – Stella Schreiber</title>
+  <meta name="description" content="Projekt von Stella Schreiber.">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css?v=57">
+  <!-- Lila-Fix -->
+  <style>:root{--violett:#9f8ad6;--lila:#9f8ad6}.menue a:hover,.menue a:focus-visible,.menue a[aria-current="page"]{color:#FFEE3B}.zurueck{position:static;padding:0;margin:0 0 1.2rem;background:none}</style>
+</head>
+<body>
+
+  <header class="kopf">
+    <a class="logo" href="index.html#portfolio" aria-label="Stella Schreiber – Startseite">
+      <img src="logo.png" alt="">
+      <span>Stella<br>Schreiber</span>
+    </a>
+    <button class="burger" id="menueAuf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menue">
+      <i></i><i></i><i></i>
+    </button>
+  </header>
+
+  <div class="scrim" id="scrim"></div>
+  <nav class="menue" id="menue" aria-label="Bereiche">
+    <button class="menue-zu" id="menueZu" type="button" aria-label="Menü schließen"></button>
+    <ul>
+      <li><a href="illustration.html">Illustration</a></li>
+      <li><a href="animation.html">Animation</a></li>
+      <li><a href="grafik-design.html">Grafik Design</a></li>
+      <li><a href="fotografie.html">Fotografie</a></li>
+    </ul>
+  </nav>
+
+  <main class="seite" id="projektDetail" data-bereich="grafik-design" data-projekt="yodo">
+    <div class="projekt-spalte">
+      <a class="zurueck" style="position:static !important;left:auto !important;bottom:auto !important;padding:0 !important;margin:0 0 1.2rem !important;background:none !important" id="zurueck" href="index.html#portfolio">&larr; Zurück</a>
+
+      <div class="slider" id="projektSlider">
+        <div class="spur" id="projektSpur" tabindex="0" aria-label="Bilder des Projekts"></div>
+        <button class="pfeil pfeil-links" id="bildVor" type="button" aria-label="Voriges Bild"></button>
+        <button class="pfeil pfeil-rechts" id="bildWeiter" type="button" aria-label="Nächstes Bild"></button>
+      </div>
+
+      <div class="projekt-info">
+        <p class="bild-zaehler" id="bildZaehler" aria-live="polite"></p>
+        <h1 class="projekt-name" id="projektTitel"></h1>
+        <p class="projekt-meta" id="projektMeta" hidden></p>
+        <div class="projekt-text" id="projektText"></div>
+      </div>
+    </div>
+    <noscript><p class="hinweis">Für diese Seite wird JavaScript benötigt.</p></noscript>
+  </main>
+
+  <footer class="fuss">
+    <p>&copy; 2026 Stella Schreiber</p>
+  </footer>
+
+  <script src="projekte.js"></script>
+  <script src="script.js"></script>
+  <script>
+    /* Link zum Forschungsprojekt der HTW unter dem Text */
+    window.addEventListener('load', function () {
+      var box = document.getElementById('projektText'); if (!box) return;
+      var p = document.createElement('p');
+      var a = document.createElement('a');
+      a.href = 'https://www.htw-berlin.de/forschung/online-forschungskatalog/projekte/projekt/?eid=3894';
+      a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'Zum Projekt im Forschungskatalog der HTW Berlin \u2192';
+      a.style.cssText = 'font-family:var(--display);font-weight:900;text-decoration:none;color:#000;transition:color .2s ease';
+      a.addEventListener('mouseenter', function () { a.style.color = '#9f8ad6'; });
+      a.addEventListener('mouseleave', function () { a.style.color = '#000'; });
+      p.appendChild(a); box.appendChild(p);
+    });
+  </script>
+</body>
+</html>

@@ -122,6 +122,7 @@ Das Spiel entstand im Kurs Expander Animation. Es bespielt zwei Projektionsfläc
       { datei: 'koepfe.jpg', titel: 'Köpfe', alt: 'Illustration: viele gezeichnete Köpfe, die ineinander übergehen' },
       { datei: 'koepfe-kreis.jpg', titel: 'Kollektiv Skop', alt: 'Illustration: drei Köpfe in Orange, Blau und Pink überlagern sich in einem grünen Kreis, umlaufender schwarzer Schriftzug' },
       { datei: 'koepfe-quadrat.jpg', titel: 'Kollektiv Skop', alt: 'Illustration: drei ineinander verschlungene Figuren in Orange, Blau und Pink auf grünem Quadrat' },
+      { datei: 'comic-auszug.jpg', titel: 'Auszug aus Comic', alt: 'Auszug aus einem Comic: Späti-Fassade mit zwei Leuchtschriften, darunter Panels mit der Verkäuferin und zwei Kundinnen, die „Zwei Bier, bitte“ bestellen' },
       // { datei: '04.jpg', titel: 'Name der Illustration', alt: 'Was zu sehen ist' },
     ],
   },
@@ -221,6 +222,27 @@ Das Spiel entstand im Kurs Expander Animation. Es bespielt zwei Projektionsfläc
         text: `Plakatgestaltung.`,
       },
 
+      {
+        id: 'yodo',
+        titel: 'YODO – Vorsorge Kalender',
+        seite: 'yodo.html',
+        ordner: 'bilder/yodo/',
+        vorschau: 'vorschau.jpg',
+        meta: 'Gruppenarbeit',
+        bilder: [
+          { datei: '01.jpg', alt: 'Der Tischkalender YODO – You only die once: blaues Cover mit Tür und Schattenflächen' },
+          { datei: '02.jpg', alt: 'Kalenderkarte zum Thema Bestattung vor der Box mit dem Titel YODO' },
+          { datei: '03.jpg', alt: 'Rückseite einer Kalenderkarte: Weiteres und Deine Gedanken mit Schreiblinien' },
+          { datei: '04.jpg', alt: 'Die geöffnete Box: Anleitung Wie funktioniert YODO, Notfallkarte und der Kalender' },
+          { datei: '05.jpg', alt: 'Notfallkarten zum Ausfüllen: Name, Anschrift, Notfallkontakt, Telefon, und Rückseite mit Vorsorgedokumenten' },
+        ],
+        text: `YODO – You only die once ist ein Kalender zur persönlichen Vorsorge. Er entstand als Gruppenarbeit an der HTW Berlin im Projekt „Bis hierhin – und weiter. Gestalterische Zugänge zu Friedhof, Bestattung und Vorsorge“.
+
+Über ein Jahr verteilt führt der Kalender Schritt für Schritt durch alles, was rund um die eigene Bestattung zu klären ist: spielerisch, aber respektvoll. Pro Woche gibt es eine Kalenderkarte mit thematischem Input auf der Vorderseite und Platz für Notizen, Fragen und eigene Gedanken auf der Rückseite. Am Ende füllt man eine Notfallkarte fürs Portemonnaie aus, die auf bestehende Dokumente und Kontakte verweist. Viele scheuen sich vor diesem Thema – der Kalender soll den Einstieg erleichtern.
+
+Mein Anteil lag vor allem in der Recherche, im Zusammentragen der Quellen und in der Formulierung der Texte. Dazu kam ein kleinerer Anteil an der grafischen Gestaltung.`,
+      },
+
     ],
   },
 
@@ -237,6 +259,8 @@ Das Spiel entstand im Kurs Expander Animation. Es bespielt zwei Projektionsfläc
       { datei: '02.jpg', titel: 'Summer Show', alt: 'Plakat Summer Show, Design Department, 12. bis 14.7.24: lila, rote und blaue Dreiecke und Muster mit heller Schrift' },
       { datei: '03.jpg', titel: 'Kultur vor Asphalt', alt: 'Plakat „Kultur vor Asphalt – Stoppt die A100“: übereinanderliegende Straßen mit Autos und eine Pyramide mit Discokugel' },
       { datei: '04.jpg', titel: 'Kino Poster', alt: 'Konzertplakat Silent Drift, Echoes beyond the Horizon Tour, Köln: Person mit roter Sternenmaske vor blauem Grund' },
+      { datei: '05.jpg', titel: 'Alles wird gut', alt: 'Plakat „Aber alles wird gut“: rote Farbspuren und schwarze Schwünge auf einem Waldfoto, darüber schräge schwarze Balken mit Schlagzeilen' },
+      { datei: '06.jpg', titel: 'Pingpong', alt: 'Plakat Ping Pong, Do 30. Oktober 2024, Ernst-Reuter-Sporthalle: roter und lila Schachbrett-Hintergrund mit grüner Tischtennisplatte' },
     ],
   },
 
