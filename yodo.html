@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YODO – Vorsorge Kalender – Stella Schreiber</title>
+  <title>YODO – Vorsorgekalender – Stella Schreiber</title>
   <meta name="description" content="Projekt von Stella Schreiber.">
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="style.css?v=57">
+  <link rel="stylesheet" href="style.css?v=60">
   <!-- Lila-Fix -->
-  <style>:root{--violett:#9f8ad6;--lila:#9f8ad6}.menue a:hover,.menue a:focus-visible,.menue a[aria-current="page"]{color:#FFEE3B}.zurueck{position:static;padding:0;margin:0 0 1.2rem;background:none}</style>
+  <style>:root{--violett:#9f8ad6;--lila:#9f8ad6}.menue a:hover,.menue a:focus-visible,.menue a[aria-current="page"]{color:#fff}.zurueck{position:static;padding:0;margin:0 0 1.2rem;background:none}</style>
+  <style>
+    /* YODO: Titelbild oben, die weiteren Fotos als Galerie unter dem Text */
+    #projektDetail[data-projekt="yodo"] .pfeil, #projektDetail[data-projekt="yodo"] .bild-zaehler { display: none; }
+    .yodo-galerie { margin-top: clamp(2rem, 5vw, 4rem); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.7rem, 1.8vw, 1.4rem); }
+    .yodo-galerie img { display: block; width: 100%; height: auto; }
+    .yodo-galerie .breit { grid-column: 1 / -1; }
+    @media (max-width: 700px) { .yodo-galerie { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -50,6 +58,13 @@
         <div class="projekt-text" id="projektText"></div>
       </div>
     </div>
+    <!-- Weitere Fotos: Dateien in bilder/yodo/ (gleicher Name = ersetzen) -->
+    <div class="projekt-spalte yodo-galerie">
+      <img src="bilder/yodo/02.jpg" width="1201" height="1600" loading="lazy" alt="Kalenderkarte zum Thema Bestattung vor der YODO-Box">
+      <img src="bilder/yodo/03.jpg" width="1201" height="1600" loading="lazy" alt="Rückseite einer Kalenderkarte: Weiteres und Deine Gedanken mit Schreiblinien">
+      <img src="bilder/yodo/04.jpg" width="1201" height="1600" loading="lazy" alt="Die geöffnete Box mit Anleitung, Notfallkarte und Kalender">
+      <img class="breit" src="bilder/yodo/05.jpg" width="1600" height="1200" loading="lazy" alt="Notfallkarten zum Ausfüllen, daneben die Rückseite mit den Vorsorgedokumenten">
+    </div>
     <noscript><p class="hinweis">Für diese Seite wird JavaScript benötigt.</p></noscript>
   </main>
 
@@ -63,12 +78,19 @@
     /* Link zum Forschungsprojekt der HTW unter dem Text */
     window.addEventListener('load', function () {
       var box = document.getElementById('projektText'); if (!box) return;
+      /* Zwischenüberschriften fett */
+      Array.prototype.forEach.call(box.querySelectorAll('p'), function (q, i) {
+        var t = q.textContent.trim();
+        if (i === 0 || t === 'Mein Beitrag' || t === 'Weiterführende Informationen') {
+          q.style.cssText = 'font-family:var(--display);font-weight:900;margin-bottom:.3rem;' + (i ? 'margin-top:1.8rem;' : 'font-size:1.25em;');
+        }
+      });
       var p = document.createElement('p');
       var a = document.createElement('a');
       a.href = 'https://www.htw-berlin.de/forschung/online-forschungskatalog/projekte/projekt/?eid=3894';
       a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = 'Zum Projekt im Forschungskatalog der HTW Berlin \u2192';
-      a.style.cssText = 'font-family:var(--display);font-weight:900;text-decoration:none;color:#000;transition:color .2s ease';
+      a.textContent = 'Hochschulprojekt im Forschungskatalog der HTW Berlin \u2192';
+      a.style.cssText = 'text-decoration:underline;text-underline-offset:.2em;color:#000;transition:color .2s ease';
       a.addEventListener('mouseenter', function () { a.style.color = '#9f8ad6'; });
       a.addEventListener('mouseleave', function () { a.style.color = '#000'; });
       p.appendChild(a); box.appendChild(p);

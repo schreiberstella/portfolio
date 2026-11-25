@@ -268,7 +268,7 @@ html[data-stage="gate"] .tor { animation: einblenden .9s ease both; }
 }
 .menue a:hover,
 .menue a:focus-visible,
-.menue a[aria-current="page"] { color: #FFEE3B; }
+.menue a[aria-current="page"] { color: #fff; }
 .menue a:hover { transform: translateX(6px); }
 
 .scrim {
